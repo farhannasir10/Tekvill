@@ -366,6 +366,23 @@ body {
   background-size: 100% 200%;
 }
 
+.brand-slider__track {
+  animation: brand-logo-scroll 70s linear infinite;
+}
+
+.brand-slider:hover .brand-slider__track {
+  animation-play-state: paused;
+}
+
+@keyframes brand-logo-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-rise,
   .animate-rise-header,
@@ -388,9 +405,14 @@ body {
   .animate-stream,
   .animate-blink,
   .animate-load,
-  .animate-code {
+  .animate-code,
+  .brand-slider__track {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .brand-slider__viewport {
+    overflow-x: auto;
   }
 }

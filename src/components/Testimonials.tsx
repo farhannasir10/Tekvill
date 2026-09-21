@@ -1,105 +1,150 @@
+"use client";
+
+import { useCallback, useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
 const quotes = [
   {
-    text: "Tekvill didn’t just deliver software — they left us a system we could own. Quiet, exact, still fast six months later.",
-    name: "Sara N.",
-    role: "VP Product, Helion",
+    text: "Tekvill played a pivotal role in turning my startup idea into a reality. From the initial concept and planning stages to building the MVP and scaling it into a complete product, their team demonstrated outstanding professionalism and technical expertise.",
+    name: "Leo",
+    role: "CEO REP",
   },
   {
-    text: "The AI layer actually shipped. No theatre. Our ops team felt the difference in the first week.",
-    name: "Marcus L.",
-    role: "CTO, Northline",
+    text: "Having collaborated with Tekvill on several app and web development projects, I am delighted to express my unwavering confidence in their services. Their consistent delivery of top-notch quality work has solidified their position as my go-to choice for future endeavors and beyond.",
+    name: "Michael",
+    role: "CEO Smart Meal Plan",
   },
   {
-    text: "Rare mix of taste and infrastructure discipline. Interface and platform finally speak the same language.",
-    name: "Amira K.",
-    role: "Head of Design, Vesper",
+    text: "I would like to take this opportunity to express my heartfelt appreciation for the exemplary service and outstanding results delivered by Tekvill during our collaboration on multiple projects with a diverse range of international customers.",
+    name: "Emily J.",
+    role: "Product Head SeenReport",
   },
-];
-
-const washes = [
-  "rgba(110,179,255,0.14)",
-  "rgba(160,140,255,0.12)",
-  "rgba(110,200,180,0.12)",
 ];
 
 export default function Testimonials() {
+  const [index, setIndex] = useState(1);
+  const count = quotes.length;
+
+  const go = useCallback(
+    (next: number) => {
+      setIndex(((next % count) + count) % count);
+    },
+    [count]
+  );
+
+  useEffect(() => {
+    const id = window.setInterval(() => go(index + 1), 7000);
+    return () => window.clearInterval(id);
+  }, [go, index]);
+
+  const item = quotes[index];
+
   return (
     <section
       id="testimonials"
-      className="relative overflow-hidden border-t border-line-dark bg-paper py-[clamp(5rem,11vh,8rem)]"
+      className="relative overflow-hidden bg-paper py-[clamp(5rem,11vh,8rem)]"
     >
-      <div
-        className="pointer-events-none absolute inset-0"
-        aria-hidden="true"
-        style={{
-          background:
-            "radial-gradient(ellipse 45% 40% at 20% 10%, rgba(110,179,255,0.08), transparent 55%)",
-        }}
-      />
+      <div className="relative mx-auto w-[min(920px,calc(100%-2.5rem))] text-center">
+        <p className="mb-3 font-ui text-[0.72rem] font-semibold tracking-[0.22em] text-[#8b7cf6] uppercase">
+          Testimonials
+        </p>
+        <h2 className="font-display text-[clamp(2.2rem,4.5vw,3.4rem)] font-semibold tracking-[-0.03em] text-ink">
+          Customers Feedback
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-[1.02rem] leading-relaxed text-[#6b6b6b]">
+          Here are a few testimonials from our highly satisfied customers,
+          highlighting their positive experiences with our services.
+        </p>
 
-      <div className="relative mx-auto w-[min(1120px,calc(100%-2.5rem))]">
-        <div className="mx-auto mb-14 max-w-2xl text-center">
-          <h2 className="font-display text-[clamp(2.2rem,4.5vw,3.6rem)] font-semibold tracking-[-0.03em] text-ink">
-            What our clients say
-          </h2>
-          <p className="mt-4 text-[1.05rem] leading-relaxed text-ink-soft">
-            Social proof from operators who measure partners by what still works
-            after launch day.
-          </p>
-        </div>
+        <div className="relative mt-12 px-10 sm:px-14 md:mt-14 md:px-16">
+          <button
+            type="button"
+            aria-label="Previous testimonial"
+            onClick={() => go(index - 1)}
+            className="absolute top-[38%] left-0 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#e8e8e8] bg-white text-[#8b7cf6] shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition hover:border-[#8b7cf6] hover:shadow-[0_4px_12px_rgba(139,124,246,0.18)] sm:h-11 sm:w-11"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path
+                d="M10 3.5 5.5 8 10 12.5"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <button
+            type="button"
+            aria-label="Next testimonial"
+            onClick={() => go(index + 1)}
+            className="absolute top-[38%] right-0 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[#e8e8e8] bg-white text-[#8b7cf6] shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition hover:border-[#8b7cf6] hover:shadow-[0_4px_12px_rgba(139,124,246,0.18)] sm:h-11 sm:w-11"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path
+                d="M6 3.5 10.5 8 6 12.5"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
 
-        <div className="grid gap-5 lg:grid-cols-3">
-          {quotes.map((item, i) => (
-            <blockquote
-              key={item.name}
-              className="group relative flex min-h-[19rem] flex-col overflow-hidden rounded-2xl border border-white/[0.07] bg-[#0d1017] p-7 shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition duration-500 hover:-translate-y-1 hover:border-white/14"
+          <div className="relative mx-auto max-w-[780px] min-h-[17rem] sm:min-h-[15rem]">
+            <span
+              className="pointer-events-none absolute top-[-0.35rem] left-1/2 z-0 -translate-x-1/2 select-none font-serif text-[clamp(7rem,18vw,11rem)] leading-none text-[#d8d8d8]/70"
+              aria-hidden="true"
             >
-              <div
-                className="pointer-events-none absolute -top-14 -right-10 h-40 w-40 rounded-full opacity-70 blur-3xl transition duration-500 group-hover:opacity-100"
-                style={{ background: washes[i % washes.length] }}
-                aria-hidden="true"
-              />
-              <div
-                className="pointer-events-none absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(165deg, rgba(255,255,255,0.04) 0%, transparent 40%)",
-                }}
-                aria-hidden="true"
-              />
+              ”
+            </span>
 
-              <p
-                className="relative mb-5 font-serif text-[2.75rem] leading-none text-accent/80"
-                aria-hidden="true"
+            <AnimatePresence mode="wait">
+              <motion.blockquote
+                key={item.name}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                className="relative z-[1] m-0"
               >
-                “
-              </p>
+                <p className="mx-auto text-[clamp(1.02rem,1.5vw,1.15rem)] leading-[1.7] text-[#5c5c5c]">
+                  {item.text}
+                </p>
+                <footer className="mt-7">
+                  <cite className="not-italic">
+                    <span className="block font-display text-[1.2rem] font-semibold text-[#1729a4]">
+                      {item.name}
+                    </span>
+                    <span className="mt-1 block font-ui text-[0.95rem] text-[#6b6b6b]">
+                      {item.role}
+                    </span>
+                  </cite>
+                </footer>
+              </motion.blockquote>
+            </AnimatePresence>
+          </div>
 
-              <p className="relative flex-1 font-serif text-[clamp(1.15rem,1.6vw,1.3rem)] leading-[1.45] font-medium tracking-[-0.015em] text-warm">
-                {item.text}
-              </p>
-
-              <footer className="relative mt-8 flex items-center gap-3.5 border-t border-white/[0.07] pt-5">
-                <span
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent/10 font-ui text-[0.72rem] font-semibold tracking-wider text-accent ring-1 ring-accent/25"
-                  aria-hidden="true"
-                >
-                  {item.name
-                    .split(" ")
-                    .map((part) => part[0])
-                    .join("")}
-                </span>
-                <cite className="not-italic">
-                  <span className="block font-display text-[0.95rem] font-semibold text-warm">
-                    {item.name}
-                  </span>
-                  <span className="mt-0.5 block font-ui text-[0.75rem] text-muted">
-                    {item.role}
-                  </span>
-                </cite>
-              </footer>
-            </blockquote>
-          ))}
+          <div
+            className="mt-9 flex items-center justify-center gap-2.5"
+            role="tablist"
+            aria-label="Testimonials"
+          >
+            {quotes.map((q, i) => (
+              <button
+                key={q.name}
+                type="button"
+                role="tab"
+                aria-selected={i === index}
+                aria-label={`Show testimonial ${i + 1}`}
+                onClick={() => setIndex(i)}
+                className={`h-2.5 w-2.5 rounded-full border-0 p-0 transition ${
+                  i === index
+                    ? "scale-[1.15] bg-[#5a49f8]"
+                    : "bg-[#d4d4d4] hover:bg-[#bdbdbd]"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

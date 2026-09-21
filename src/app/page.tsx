@@ -5,6 +5,7 @@ import CaseStudies from "@/components/CaseStudies";
 import Approach from "@/components/Approach";
 import TechStack from "@/components/TechStack";
 import Testimonials from "@/components/Testimonials";
+import BrandsTrust from "@/components/BrandsTrust";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Approach />
       <TechStack />
       <Testimonials />
+      <BrandsTrust />
       <FinalCTA />
       <Footer />
     </main>
