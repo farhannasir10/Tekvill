@@ -47,30 +47,35 @@ export default function Approach() {
           </p>
         </div>
 
-        <div className="relative grid gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:gap-3">
-          {steps.map((step, i) => (
-            <article
-              key={step.title}
-              className="group relative flex flex-col rounded-2xl border border-white/[0.07] bg-[#0d1017]/90 p-5 shadow-[0_16px_40px_rgba(0,0,0,0.28)] backdrop-blur-sm transition duration-500 hover:-translate-y-1 hover:border-white/15"
-            >
-              <div
-                className="pointer-events-none absolute -top-10 -right-8 h-28 w-28 rounded-full opacity-0 blur-2xl transition duration-500 group-hover:opacity-100"
-                style={{ background: "rgba(110,179,255,0.18)" }}
-                aria-hidden="true"
-              />
+        <div className="relative">
+          <div
+            className="pointer-events-none absolute top-[1.85rem] right-[5%] left-[5%] z-0 hidden lg:block"
+            aria-hidden="true"
+          >
+            <div className="h-px w-full border-t border-dashed border-accent/25" />
+          </div>
 
-              <p className="relative mb-4 font-display text-[1.65rem] font-semibold tracking-[-0.03em] text-accent">
-                0{i + 1}
-              </p>
+          <div className="relative z-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5 lg:gap-3">
+            {steps.map((step, i) => (
+              <article
+                key={step.title}
+                className="group relative flex min-h-[14rem] flex-col rounded-2xl border border-white/10 bg-[#1a1d24] p-5 shadow-[0_14px_36px_rgba(10,12,16,0.18)] transition-[transform,box-shadow] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] hover:z-20 hover:-translate-y-2 hover:shadow-[0_24px_52px_rgba(10,12,16,0.28)] sm:p-6"
+              >
+                <p className="relative z-10 mb-auto font-display text-[0.95rem] font-semibold tracking-[-0.02em] text-accent">
+                  0{i + 1}
+                </p>
 
-              <h3 className="relative mb-2 font-display text-[1.15rem] font-semibold tracking-[-0.02em] text-warm">
-                {step.title}
-              </h3>
-              <p className="relative font-ui text-[0.84rem] leading-relaxed text-lede">
-                {step.body}
-              </p>
-            </article>
-          ))}
+                <div className="relative mt-7">
+                  <h3 className="mb-3 font-display text-[1.22rem] font-bold tracking-[-0.025em] text-warm">
+                    {step.title}
+                  </h3>
+                  <p className="font-ui text-[0.875rem] leading-[1.7] font-medium text-[#c8cad2]">
+                    {step.body}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
