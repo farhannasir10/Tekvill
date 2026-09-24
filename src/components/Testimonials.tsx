@@ -42,7 +42,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="relative overflow-hidden bg-paper py-[clamp(5rem,11vh,8rem)]"
+      className="relative overflow-hidden bg-paper pt-[clamp(5rem,11vh,8rem)] pb-[clamp(2rem,4vh,3rem)]"
     >
       <div className="relative mx-auto w-[min(920px,calc(100%-2.5rem))] text-center">
         <p className="mb-3 font-ui text-[0.72rem] font-semibold tracking-[0.22em] text-[#8b7cf6] uppercase">

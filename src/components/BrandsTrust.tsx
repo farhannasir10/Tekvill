@@ -71,7 +71,7 @@ export default function BrandsTrust() {
   return (
     <section
       id="brands"
-      className="relative overflow-hidden bg-paper py-[clamp(4.5rem,10vh,7rem)]"
+      className="relative overflow-hidden bg-paper pt-[clamp(2rem,4vh,3rem)] pb-[clamp(4.5rem,10vh,7rem)]"
     >
       <div className="relative mx-auto w-[min(1120px,calc(100%-2.5rem))]">
         <div className="mx-auto mb-10 max-w-2xl text-center md:mb-12">

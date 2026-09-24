@@ -6,9 +6,13 @@ export default function CaseStudies() {
   return (
     <section
       id="work"
-      className="relative border-t border-line bg-surface py-[clamp(5rem,11vh,8rem)]"
+      className="relative overflow-hidden border-t border-line py-[clamp(5rem,11vh,8rem)]"
+      style={{
+        background:
+          "radial-gradient(ellipse 70% 50% at 50% -10%, rgba(110,179,255,0.09), transparent 55%), #0c1424",
+      }}
     >
-      <div className="mx-auto w-[min(1120px,calc(100%-2.5rem))]">
+      <div className="relative mx-auto w-[min(1120px,calc(100%-2.5rem))]">
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <h2 className="font-display text-[clamp(2.2rem,4.5vw,3.6rem)] font-semibold tracking-[-0.03em] text-warm">
             Stories of transformation
@@ -35,7 +39,7 @@ export default function CaseStudies() {
                   className="object-cover transition duration-700 group-hover:scale-[1.04]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0d1017] via-[#0d1017]/55 to-transparent" />
-                <div className="absolute bottom-4 left-5 right-5">
+                <div className="absolute right-5 bottom-4 left-5">
                   <p className="font-serif text-[clamp(2rem,3vw,2.6rem)] font-medium tracking-[-0.03em] text-white">
                     {item.metric}
                   </p>
