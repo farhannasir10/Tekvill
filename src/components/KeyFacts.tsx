@@ -12,11 +12,11 @@ export default function KeyFacts() {
       className="relative overflow-hidden border-t border-line-dark bg-white py-[clamp(2.75rem,6vh,4.25rem)]"
     >
       <div className="relative mx-auto w-[min(1120px,calc(100%-2.5rem))]">
-        <div className="mx-auto mb-8 max-w-xl text-center md:mb-10">
+        <div className="mx-auto mb-8 text-center md:mb-10">
           <p className="mb-2 font-ui text-[0.68rem] font-semibold tracking-[0.2em] text-ink/40 uppercase">
             Key facts & figures
           </p>
-          <h2 className="font-display text-[clamp(1.65rem,3.2vw,2.25rem)] font-semibold tracking-[-0.035em] text-ink">
+          <h2 className="mx-auto whitespace-nowrap font-display text-[clamp(1.15rem,3.4vw,2.25rem)] font-semibold tracking-[-0.035em] text-ink">
             Numbers that stay quiet — until they matter.
           </h2>
         </div>
