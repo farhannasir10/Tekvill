@@ -6,36 +6,20 @@ export default function Capabilities() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden py-[clamp(5rem,11vh,8rem)]"
-      style={{
-        background:
-          "radial-gradient(ellipse 70% 55% at 12% 0%, rgba(255,255,255,0.18), transparent 55%), radial-gradient(ellipse 55% 45% at 88% 100%, rgba(10,40,90,0.22), transparent 50%), linear-gradient(165deg, #3d8fff 0%, #5aa8ff 48%, #4d9fff 100%)",
-      }}
+      className="relative overflow-hidden bg-[#F6F6F6] py-[clamp(5rem,11vh,8rem)]"
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.07]"
-        aria-hidden="true"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-          maskImage:
-            "radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 75%)",
-        }}
-      />
-
       <div className="relative mx-auto w-[min(1120px,calc(100%-2.5rem))]">
         <div className="mb-10 sm:mb-12 md:mb-14">
-          <p className="mb-4 font-ui text-[0.7rem] font-semibold tracking-[0.2em] text-white/75 uppercase">
+          <p className="mb-4 font-ui text-[0.7rem] font-semibold tracking-[0.2em] text-ink/45 uppercase">
             Services that ship
           </p>
 
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between sm:gap-10">
             <div className="min-w-0 max-w-2xl">
-              <h2 className="font-display text-[clamp(2.35rem,4.8vw,3.6rem)] font-semibold leading-[1.1] tracking-[-0.04em] text-white">
+              <h2 className="font-display text-[clamp(2.35rem,4.8vw,3.6rem)] font-semibold leading-[1.1] tracking-[-0.04em] text-ink">
                 Built for ambitious teams
               </h2>
-              <p className="mt-4 max-w-md text-[1.05rem] leading-relaxed text-white/80">
+              <p className="mt-4 max-w-md text-[1.05rem] leading-relaxed text-ink-soft">
                 Depth without the agency theatre — AI, product, and platforms
                 from one studio.
               </p>
@@ -43,7 +27,7 @@ export default function Capabilities() {
 
             <Link
               href="/services"
-              className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 self-start rounded-xl border border-white/70 bg-white px-5 text-[0.72rem] font-semibold tracking-[0.1em] text-[#1a4a8c] uppercase shadow-[0_8px_24px_rgba(15,40,90,0.14)] transition duration-300 hover:-translate-y-0.5 hover:bg-white/95 sm:self-end"
+              className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 self-start rounded-xl border border-ink/15 bg-white px-5 text-[0.72rem] font-semibold tracking-[0.1em] text-ink uppercase shadow-[0_8px_24px_rgba(15,18,24,0.06)] transition duration-300 hover:-translate-y-0.5 hover:border-ink/30 sm:self-end"
             >
               View all services
               <span aria-hidden="true">↗</span>
@@ -56,7 +40,7 @@ export default function Capabilities() {
             <Link
               key={item.slug}
               href={`/services#${item.slug}`}
-              className="group relative flex flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-[0_14px_36px_rgba(15,40,90,0.14)] transition duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:shadow-[0_22px_48px_rgba(15,40,90,0.22)] sm:p-7"
+              className="group relative flex flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-[0_10px_28px_rgba(15,18,24,0.06)] transition duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_rgba(15,18,24,0.1)] sm:p-7"
             >
               <span
                 className="absolute inset-x-0 top-0 h-[3px] bg-[#2f7fe8] transition-[height] duration-300 group-hover:h-1"
