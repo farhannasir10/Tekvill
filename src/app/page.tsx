@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Capabilities from "@/components/Capabilities";
 import CaseStudies from "@/components/CaseStudies";
-import Approach from "@/components/Approach";
+import KeyFacts from "@/components/KeyFacts";
 import TechStack from "@/components/TechStack";
 import Testimonials from "@/components/Testimonials";
 import BrandsTrust from "@/components/BrandsTrust";
@@ -16,7 +16,7 @@ export default function HomePage() {
       <Hero />
       <Capabilities />
       <CaseStudies />
-      <Approach />
+      <KeyFacts />
       <TechStack />
       <Testimonials />
       <BrandsTrust />
