@@ -9,7 +9,6 @@ const company = [
 const work = [
   { href: "/services", label: "Services" },
   { href: "/work", label: "Case studies" },
-  { href: "/#insights", label: "Tech stack" },
 ];
 
 export default function Footer() {

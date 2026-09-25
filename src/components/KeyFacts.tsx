@@ -9,7 +9,7 @@ export default function KeyFacts() {
   return (
     <section
       id="approach"
-      className="relative overflow-hidden border-t border-line-dark bg-white py-[clamp(5rem,11vh,8rem)]"
+      className="relative overflow-hidden border-t border-line-dark bg-white pt-[clamp(5rem,11vh,8rem)] pb-[clamp(2rem,4vh,3rem)]"
     >
       <div className="relative mx-auto w-[min(1120px,calc(100%-2.5rem))]">
         <div className="mx-auto mb-14 max-w-xl text-center md:mb-16">

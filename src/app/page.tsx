@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import Capabilities from "@/components/Capabilities";
 import CaseStudies from "@/components/CaseStudies";
 import KeyFacts from "@/components/KeyFacts";
-import TechStack from "@/components/TechStack";
 import Testimonials from "@/components/Testimonials";
 import BrandsTrust from "@/components/BrandsTrust";
 import FinalCTA from "@/components/FinalCTA";
@@ -17,7 +16,6 @@ export default function HomePage() {
       <Capabilities />
       <CaseStudies />
       <KeyFacts />
-      <TechStack />
       <Testimonials />
       <BrandsTrust />
       <FinalCTA />
