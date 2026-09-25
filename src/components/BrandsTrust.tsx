@@ -46,11 +46,11 @@ const brands: Brand[] = [
 
 function LogoRow({ suffix }: { suffix: string }) {
   return (
-    <div className="brand-slider__slide flex shrink-0 items-center gap-12 pr-12 md:gap-16 md:pr-16">
+    <div className="brand-slider__slide flex shrink-0 items-center gap-10 pr-10 md:gap-14 md:pr-14">
       {brands.map((brand) => (
         <div
           key={`${brand.src}-${suffix}`}
-          className="group flex h-[5rem] w-[12rem] shrink-0 items-center justify-center sm:h-[5.5rem] sm:w-[14rem] md:h-[6rem] md:w-[15rem]"
+          className="group flex h-[3.75rem] w-[10.5rem] shrink-0 items-center justify-center sm:h-[4.25rem] sm:w-[12rem] md:h-[4.5rem] md:w-[13rem]"
         >
           <Image
             src={brand.src}
@@ -58,7 +58,7 @@ function LogoRow({ suffix }: { suffix: string }) {
             width={brand.width}
             height={brand.height}
             style={{ transform: `scale(${brand.scale ?? 1})` }}
-            className="max-h-[3.5rem] w-auto max-w-[90%] object-contain opacity-50 grayscale transition duration-400 group-hover:opacity-100 group-hover:grayscale-0 sm:max-h-[4rem] md:max-h-[4.5rem]"
+            className="max-h-[2.75rem] w-auto max-w-[88%] object-contain opacity-50 grayscale transition duration-400 group-hover:opacity-100 group-hover:grayscale-0 sm:max-h-[3.25rem] md:max-h-[3.5rem]"
           />
         </div>
       ))}
@@ -70,13 +70,13 @@ export default function BrandsTrust() {
   return (
     <section
       id="brands"
-      className="relative overflow-hidden bg-white pt-[clamp(1.5rem,3vh,2.5rem)] pb-[clamp(4.5rem,10vh,7rem)]"
+      className="relative overflow-hidden bg-white pt-[clamp(1rem,2.5vh,1.75rem)] pb-[clamp(3rem,7vh,5rem)]"
     >
-      <div className="relative mx-auto mb-10 w-[min(1120px,calc(100%-2.5rem))] text-center md:mb-12">
-        <h2 className="font-display text-[clamp(2.1rem,4.2vw,3.2rem)] font-semibold tracking-[-0.035em] text-ink">
+      <div className="relative mx-auto mb-7 w-[min(1120px,calc(100%-2.5rem))] text-center md:mb-8">
+        <h2 className="font-display text-[clamp(1.85rem,3.6vw,2.6rem)] font-semibold tracking-[-0.035em] text-ink">
           Brands That Trust Us
         </h2>
-        <p className="mx-auto mt-3 max-w-lg text-[1rem] leading-relaxed text-ink-soft">
+        <p className="mx-auto mt-2.5 max-w-lg text-[0.95rem] leading-relaxed text-ink-soft">
           Visionary teams we&apos;ve helped shape what comes next.
         </p>
       </div>
@@ -97,7 +97,7 @@ export default function BrandsTrust() {
           }}
         />
 
-        <div className="brand-slider__viewport overflow-hidden py-1">
+        <div className="brand-slider__viewport overflow-hidden py-0.5">
           <div className="brand-slider__track flex w-max">
             <LogoRow suffix="a" />
             <LogoRow suffix="b" />
