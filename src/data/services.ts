@@ -12,7 +12,8 @@ export type Service = {
     | "staff"
     | "cloud"
     | "strategy"
-    | "qa";
+    | "qa"
+    | "data";
   cover: string;
   coverAlt: string;
   overview: string;
@@ -211,6 +212,30 @@ export const services: Service[] = [
       "Automate the highest-value paths first",
       "Wire gates into your delivery pipeline",
       "Tune coverage as the product evolves",
+    ],
+  },
+  {
+    slug: "data-engineering",
+    index: "09",
+    title: "Data Engineering",
+    body: "Pipelines, warehouses, and analytics foundations that turn raw data into decisions.",
+    tags: ["ETL Pipelines", "Warehousing", "Analytics"],
+    icon: "data",
+    cover: "/services/cloud-devops.jpg",
+    coverAlt: "Data engineering and analytics infrastructure",
+    overview:
+      "We build the data layer your product and leadership can trust — clean ingestion, reliable warehouses, and pipelines that stay observable as volume grows.",
+    deliverables: [
+      "ETL / ELT pipelines and orchestration",
+      "Warehouse modeling and documentation",
+      "Quality checks and anomaly alerts",
+      "Analytics-ready datasets for product & ops",
+    ],
+    process: [
+      "Map sources, owners, and decision use-cases",
+      "Design schemas and pipeline ownership",
+      "Automate quality, lineage, and refresh SLAs",
+      "Hand off with runbooks and clear metrics",
     ],
   },
 ];

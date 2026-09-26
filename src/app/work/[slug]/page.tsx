@@ -39,22 +39,30 @@ export default async function CaseStudyPage({ params }: PageProps) {
     <main className="bg-[#F6F6F6]">
       <Header />
 
-      <section className="relative overflow-hidden bg-[#F6F6F6] pt-10">
-        <div className="relative mx-auto w-[min(1120px,calc(100%-2.5rem))] pb-10">
+      <section className="relative overflow-hidden bg-black pt-14 pb-16">
+        <div
+          className="pointer-events-none absolute inset-0"
+          aria-hidden="true"
+          style={{
+            background:
+              "radial-gradient(ellipse 50% 80% at 10% 0%, rgba(110,179,255,0.06), transparent 55%)",
+          }}
+        />
+        <div className="relative mx-auto w-[min(1120px,calc(100%-2.5rem))]">
           <Link
             href="/work"
-            className="mb-8 inline-flex text-[0.7rem] font-medium tracking-[0.14em] text-ink/45 uppercase transition hover:text-ink"
+            className="mb-8 inline-flex text-[0.7rem] font-medium tracking-[0.14em] text-muted uppercase transition hover:text-warm"
           >
             ← All case studies
           </Link>
 
-          <p className="mb-4 text-[0.68rem] font-semibold tracking-[0.18em] text-[#2f7fe8] uppercase">
+          <p className="mb-4 text-[0.68rem] font-semibold tracking-[0.18em] text-accent uppercase">
             {study.sector} · {study.client}
           </p>
-          <h1 className="max-w-3xl font-display text-[clamp(2.4rem,5vw,3.8rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink">
+          <h1 className="max-w-3xl font-display text-[clamp(2.4rem,5vw,3.8rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-warm">
             {study.title}
           </h1>
-          <p className="mt-5 max-w-2xl text-[1.1rem] leading-relaxed text-ink-soft">
+          <p className="mt-5 max-w-2xl text-[1.1rem] leading-relaxed text-lede">
             {study.summary}
           </p>
 
@@ -62,14 +70,16 @@ export default async function CaseStudyPage({ params }: PageProps) {
             {study.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-md bg-white px-3 py-1.5 text-[0.62rem] font-medium tracking-[0.06em] text-ink/55 ring-1 ring-ink/10"
+                className="rounded-full bg-white/[0.04] px-3 py-1.5 text-[0.62rem] font-medium tracking-[0.06em] text-muted ring-1 ring-white/[0.08]"
               >
                 {tag}
               </span>
             ))}
           </div>
         </div>
+      </section>
 
+      <section className="bg-[#F6F6F6] pt-8 pb-4">
         <div className="relative mx-auto w-[min(1200px,calc(100%-1.5rem))] overflow-hidden rounded-2xl border border-ink/[0.06] shadow-[0_20px_50px_rgba(15,18,24,0.08)]">
           <div className="relative aspect-[21/9] min-h-[240px]">
             <Image

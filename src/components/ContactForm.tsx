@@ -37,7 +37,7 @@ export default function ContactForm() {
             type="text"
             autoComplete="name"
             placeholder="Your name"
-            className="w-full rounded-xl border border-ink/10 bg-[#F6F6F6] px-4 py-3.5 font-ui text-[0.95rem] text-ink outline-none transition placeholder:text-ink/35 focus:border-[#14b8a6] focus:bg-white focus:ring-2 focus:ring-[#14b8a6]/20"
+            className="w-full rounded-xl border border-ink/10 bg-[#F6F6F6] px-4 py-3.5 font-ui text-[0.95rem] text-ink outline-none transition placeholder:text-ink/35 focus:border-[#6eb3ff] focus:bg-white focus:ring-2 focus:ring-[#6eb3ff]/20"
           />
         </label>
         <label className="block">
@@ -50,7 +50,7 @@ export default function ContactForm() {
             type="email"
             autoComplete="email"
             placeholder="you@company.com"
-            className="w-full rounded-xl border border-ink/10 bg-[#F6F6F6] px-4 py-3.5 font-ui text-[0.95rem] text-ink outline-none transition placeholder:text-ink/35 focus:border-[#14b8a6] focus:bg-white focus:ring-2 focus:ring-[#14b8a6]/20"
+            className="w-full rounded-xl border border-ink/10 bg-[#F6F6F6] px-4 py-3.5 font-ui text-[0.95rem] text-ink outline-none transition placeholder:text-ink/35 focus:border-[#6eb3ff] focus:bg-white focus:ring-2 focus:ring-[#6eb3ff]/20"
           />
         </label>
       </div>
@@ -64,7 +64,7 @@ export default function ContactForm() {
           type="text"
           autoComplete="organization"
           placeholder="Optional"
-          className="w-full rounded-xl border border-ink/10 bg-[#F6F6F6] px-4 py-3.5 font-ui text-[0.95rem] text-ink outline-none transition placeholder:text-ink/35 focus:border-[#14b8a6] focus:bg-white focus:ring-2 focus:ring-[#14b8a6]/20"
+          className="w-full rounded-xl border border-ink/10 bg-[#F6F6F6] px-4 py-3.5 font-ui text-[0.95rem] text-ink outline-none transition placeholder:text-ink/35 focus:border-[#6eb3ff] focus:bg-white focus:ring-2 focus:ring-[#6eb3ff]/20"
         />
       </label>
 
@@ -77,13 +77,13 @@ export default function ContactForm() {
           name="message"
           rows={5}
           placeholder="Tell us what you're building…"
-          className="w-full resize-y rounded-xl border border-ink/10 bg-[#F6F6F6] px-4 py-3.5 font-ui text-[0.95rem] text-ink outline-none transition placeholder:text-ink/35 focus:border-[#14b8a6] focus:bg-white focus:ring-2 focus:ring-[#14b8a6]/20"
+          className="w-full resize-y rounded-xl border border-ink/10 bg-[#F6F6F6] px-4 py-3.5 font-ui text-[0.95rem] text-ink outline-none transition placeholder:text-ink/35 focus:border-[#6eb3ff] focus:bg-white focus:ring-2 focus:ring-[#6eb3ff]/20"
         />
       </label>
 
       <button
         type="submit"
-        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#0f766e] px-7 text-[0.72rem] font-semibold tracking-[0.14em] text-white uppercase shadow-[0_10px_28px_rgba(15,118,110,0.28)] transition hover:-translate-y-0.5 hover:bg-[#0d9488] sm:w-auto"
+        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#6eb3ff] px-7 text-[0.72rem] font-semibold tracking-[0.14em] text-white uppercase shadow-[0_10px_28px_rgba(110,179,255,0.35)] transition hover:-translate-y-0.5 hover:bg-[#5aa8ff] sm:w-auto"
       >
         Send message →
       </button>
@@ -91,7 +91,7 @@ export default function ContactForm() {
       {status === "sent" ? (
         <p className="font-ui text-[0.88rem] text-ink-soft">
           Opening your email client… If nothing opens, write us at{" "}
-          <a href="mailto:hello@tekvill.com" className="text-[#0f766e] underline">
+          <a href="mailto:hello@tekvill.com" className="text-[#2f7fe8] underline">
             hello@tekvill.com
           </a>
           .

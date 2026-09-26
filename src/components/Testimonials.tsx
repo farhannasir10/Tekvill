@@ -27,11 +27,11 @@ export default function Testimonials() {
     >
       <div className="relative mx-auto w-[min(1480px,calc(100%-1.5rem))] sm:w-[min(1480px,calc(100%-2rem))]">
         <div className="rounded-[1.5rem] bg-[#F6F6F6] px-5 py-8 sm:px-7 sm:py-9 md:rounded-[1.75rem] md:px-8 md:py-10">
-          <div className="mb-8 max-w-2xl md:mb-9">
+          <div className="mb-8 md:mb-9">
             <p className="mb-3 font-ui text-[0.68rem] font-semibold tracking-[0.2em] text-[#6B7280] uppercase">
               Client voices
             </p>
-            <h2 className="font-display text-[clamp(2.1rem,4.2vw,3.2rem)] font-semibold tracking-[-0.035em] text-[#1F2937]">
+            <h2 className="whitespace-nowrap font-display text-[clamp(1.35rem,3.6vw,3.2rem)] font-semibold tracking-[-0.035em] text-[#1F2937]">
               Trusted with the work that matters most.
             </h2>
           </div>

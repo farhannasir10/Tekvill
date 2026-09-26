@@ -75,6 +75,14 @@ const paths: Record<Service["icon"], React.ReactNode> = {
       />
     </>
   ),
+  data: (
+    <>
+      <path
+        fill="currentColor"
+        d="M4.5 6.2c0-1.7 3.4-3 7.5-3s7.5 1.3 7.5 3-3.4 3-7.5 3-7.5-1.3-7.5-3Zm0 3.8v2.2c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3V10c-.8.9-3.6 1.8-7.5 1.8S5.3 10.9 4.5 10Zm0 5.2v2.2c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-2.2c-.8.9-3.6 1.8-7.5 1.8S5.3 16.1 4.5 15.2Z"
+      />
+    </>
+  ),
 };
 
 export default function ServiceIcon({

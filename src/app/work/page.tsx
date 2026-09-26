@@ -16,13 +16,15 @@ export default function WorkIndexPage() {
     <main className="bg-[#F6F6F6]">
       <Header />
 
-      <section
-        className="relative overflow-hidden pt-14 pb-16"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 55% at 88% 0%, rgba(255,255,255,0.2), transparent 55%), linear-gradient(165deg, #3d8fff 0%, #5aa8ff 48%, #4d9fff 100%)",
-        }}
-      >
+      <section className="relative overflow-hidden bg-black pt-14 pb-16">
+        <div
+          className="pointer-events-none absolute inset-0"
+          aria-hidden="true"
+          style={{
+            background:
+              "radial-gradient(ellipse 50% 80% at 10% 0%, rgba(110,179,255,0.06), transparent 55%)",
+          }}
+        />
         <div className="relative mx-auto w-[min(1120px,calc(100%-2.5rem))]">
           <p className="mb-4 text-[0.68rem] font-semibold tracking-[0.2em] text-white/75 uppercase">
             Work

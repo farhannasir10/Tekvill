@@ -27,23 +27,25 @@ export default function ContactPage() {
     <main className="bg-[#F6F6F6]">
       <Header />
 
-      <section
-        className="relative overflow-hidden pt-14 pb-16"
-        style={{
-          background:
-            "radial-gradient(ellipse 65% 50% at 85% 10%, rgba(255,255,255,0.2), transparent 55%), linear-gradient(155deg, #0f766e 0%, #14b8a6 48%, #2dd4bf 100%)",
-        }}
-      >
+      <section className="relative overflow-hidden bg-black pt-14 pb-16">
+        <div
+          className="pointer-events-none absolute inset-0"
+          aria-hidden="true"
+          style={{
+            background:
+              "radial-gradient(ellipse 50% 80% at 10% 0%, rgba(110,179,255,0.06), transparent 55%)",
+          }}
+        />
         <div className="relative mx-auto w-[min(1120px,calc(100%-2.5rem))]">
-          <p className="mb-4 text-[0.68rem] font-semibold tracking-[0.2em] text-white/75 uppercase">
+          <p className="mb-4 text-[0.68rem] font-semibold tracking-[0.2em] text-accent uppercase">
             Contact
           </p>
-          <h1 className="max-w-2xl font-display text-[clamp(2.4rem,5vw,3.6rem)] font-semibold tracking-[-0.035em] text-white">
+          <h1 className="max-w-2xl font-display text-[clamp(2.4rem,5vw,3.6rem)] font-semibold tracking-[-0.035em] text-warm">
             Ready to start
             <br />
             your project?
           </h1>
-          <p className="mt-5 max-w-xl text-[1.05rem] leading-relaxed text-white/85">
+          <p className="mt-5 max-w-xl text-[1.05rem] leading-relaxed text-lede">
             Tell us what you&apos;re building. We reply within one business day
             — with a clear next step, not a pitch deck.
           </p>
@@ -54,7 +56,7 @@ export default function ContactPage() {
         <div className="mx-auto grid w-[min(1120px,calc(100%-2.5rem))] gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-8">
           <aside className="flex flex-col gap-5">
             <div className="rounded-2xl border border-ink/[0.06] bg-white p-7 shadow-[0_12px_36px_rgba(15,18,24,0.05)] md:p-8">
-              <p className="mb-5 font-ui text-[0.68rem] font-semibold tracking-[0.18em] text-[#0f766e] uppercase">
+              <p className="mb-5 font-ui text-[0.68rem] font-semibold tracking-[0.18em] text-[#2f7fe8] uppercase">
                 What to expect
               </p>
               <ul className="space-y-3.5">
@@ -63,7 +65,7 @@ export default function ContactPage() {
                     key={point}
                     className="flex items-center gap-3 font-ui text-[0.95rem] text-ink-soft"
                   >
-                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#14b8a6]" />
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#6eb3ff]" />
                     {point}
                   </li>
                 ))}
@@ -71,7 +73,7 @@ export default function ContactPage() {
             </div>
 
             <div className="rounded-2xl border border-ink/[0.06] bg-white p-7 shadow-[0_12px_36px_rgba(15,18,24,0.05)] md:p-8">
-              <p className="mb-5 font-ui text-[0.68rem] font-semibold tracking-[0.18em] text-[#0f766e] uppercase">
+              <p className="mb-5 font-ui text-[0.68rem] font-semibold tracking-[0.18em] text-[#2f7fe8] uppercase">
                 Details
               </p>
               <ul className="space-y-5">
@@ -83,7 +85,7 @@ export default function ContactPage() {
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="mt-1 block font-display text-[1.05rem] font-semibold text-ink transition hover:text-[#0f766e]"
+                        className="mt-1 block font-display text-[1.05rem] font-semibold text-ink transition hover:text-[#2f7fe8]"
                       >
                         {item.value}
                       </a>
@@ -99,7 +101,7 @@ export default function ContactPage() {
 
             <Link
               href="mailto:hello@tekvill.com?subject=Book%20a%20call"
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-ink/15 bg-white px-6 text-[0.72rem] font-semibold tracking-[0.12em] text-ink uppercase transition hover:border-[#14b8a6] hover:text-[#0f766e]"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-ink/15 bg-white px-6 text-[0.72rem] font-semibold tracking-[0.12em] text-ink uppercase transition hover:border-[#6eb3ff] hover:text-[#2f7fe8]"
             >
               Book a call →
             </Link>
@@ -110,8 +112,8 @@ export default function ContactPage() {
               <h2 className="font-display text-[clamp(1.4rem,2.5vw,1.75rem)] font-semibold tracking-[-0.02em] text-ink">
                 Start a conversation
               </h2>
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#ecfdf8] px-3 py-1 font-ui text-[0.68rem] text-[#0f766e]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#3db87a]" />
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#e8f2ff] px-3 py-1 font-ui text-[0.68rem] text-[#2f7fe8]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#6eb3ff]" />
                 Reply in 1 day
               </span>
             </div>

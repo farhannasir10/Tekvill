@@ -40,72 +40,66 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     <main className="bg-[#F6F6F6]">
       <Header />
 
-      <section className="relative isolate min-h-[68vh] overflow-hidden">
-        <Image
-          src={service.cover}
-          alt={service.coverAlt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
+      <section className="relative overflow-hidden bg-black pt-14 pb-16">
         <div
-          className="absolute inset-0"
+          className="pointer-events-none absolute inset-0"
+          aria-hidden="true"
           style={{
             background:
-              "linear-gradient(115deg, rgba(12,30,70,0.88) 0%, rgba(45,110,200,0.72) 48%, rgba(74,159,255,0.55) 100%)",
+              "radial-gradient(ellipse 50% 80% at 10% 0%, rgba(110,179,255,0.06), transparent 55%)",
           }}
-          aria-hidden="true"
         />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(7,8,10,0.25) 0%, transparent 35%, rgba(7,8,10,0.45) 100%)",
-          }}
-          aria-hidden="true"
-        />
-
-        <div className="relative z-[1] mx-auto flex min-h-[calc(68vh-1rem)] w-[min(1120px,calc(100%-2.5rem))] flex-col justify-end pb-14 pt-10">
+        <div className="relative mx-auto w-[min(1120px,calc(100%-2.5rem))]">
           <Link
             href="/services"
-            className="mb-auto inline-flex w-fit text-[0.7rem] font-medium tracking-[0.14em] text-white/70 uppercase transition hover:text-white"
+            className="mb-8 inline-flex text-[0.7rem] font-medium tracking-[0.14em] text-muted uppercase transition hover:text-warm"
           >
             ← All services
           </Link>
 
-          <div className="mt-16 max-w-3xl">
-            <div className="mb-5 flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 text-white ring-1 ring-white/25 backdrop-blur-md">
-                <ServiceIcon name={service.icon} className="h-5 w-5" />
-              </span>
-              <p className="text-[0.68rem] font-semibold tracking-[0.18em] text-white/75 uppercase">
-                Service {service.index}
-              </p>
-            </div>
-
-            <h1 className="font-display text-[clamp(2.6rem,5.5vw,4.2rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-white">
-              {service.title}
-            </h1>
-            <p className="mt-5 max-w-xl text-[1.12rem] leading-relaxed text-white/85">
-              {service.body}
+          <div className="mb-5 flex items-center gap-3">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/[0.04] text-accent ring-1 ring-white/10">
+              <ServiceIcon name={service.icon} className="h-5 w-5" />
+            </span>
+            <p className="text-[0.68rem] font-semibold tracking-[0.18em] text-accent uppercase">
+              Service {service.index}
             </p>
+          </div>
 
-            <div className="mt-8 flex flex-wrap gap-2">
-              {service.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 text-[0.65rem] font-medium tracking-[0.06em] text-white backdrop-blur-sm"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+          <h1 className="max-w-3xl font-display text-[clamp(2.4rem,5vw,3.8rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-warm">
+            {service.title}
+          </h1>
+          <p className="mt-5 max-w-2xl text-[1.1rem] leading-relaxed text-lede">
+            {service.body}
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-2">
+            {service.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full bg-white/[0.04] px-3.5 py-1.5 text-[0.65rem] font-medium tracking-[0.06em] text-muted ring-1 ring-white/[0.08]"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
       <section className="bg-[#F6F6F6] py-[clamp(3.5rem,8vh,5.5rem)]">
+        <div className="mx-auto mb-8 w-[min(1120px,calc(100%-2.5rem))] overflow-hidden rounded-2xl border border-ink/[0.06] shadow-[0_16px_44px_rgba(15,18,24,0.06)]">
+          <div className="relative aspect-[21/9] min-h-[200px]">
+            <Image
+              src={service.cover}
+              alt={service.coverAlt}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
+
         <div className="mx-auto grid w-[min(1120px,calc(100%-2.5rem))] gap-6 lg:grid-cols-[1.25fr_0.75fr] lg:gap-8">
           <div className="rounded-2xl bg-white p-8 shadow-[0_16px_44px_rgba(15,18,24,0.06)] md:p-10">
             <p className="mb-3 font-ui text-[0.68rem] font-semibold tracking-[0.18em] text-[#2f7fe8] uppercase">
@@ -152,22 +146,16 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               </ul>
             </div>
 
-            <div
-              className="rounded-2xl p-7 shadow-[0_16px_44px_rgba(47,127,232,0.2)] md:p-8"
-              style={{
-                background:
-                  "linear-gradient(145deg, #3d8fff 0%, #4d9fff 100%)",
-              }}
-            >
-              <p className="font-display text-[1.25rem] font-semibold tracking-[-0.02em] text-white">
+            <div className="rounded-2xl border border-white/[0.07] bg-black p-7 shadow-[0_16px_44px_rgba(0,0,0,0.25)] md:p-8">
+              <p className="font-display text-[1.25rem] font-semibold tracking-[-0.02em] text-warm">
                 Ready to ship this?
               </p>
-              <p className="mt-2 text-[0.9rem] leading-relaxed text-white/80">
+              <p className="mt-2 text-[0.9rem] leading-relaxed text-lede">
                 Tell us the outcome you need — we&apos;ll map the engagement.
               </p>
               <Link
                 href="/contact"
-                className="mt-6 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-white px-6 text-[0.72rem] font-semibold tracking-[0.12em] text-[#1a4a8c] uppercase transition hover:bg-white/95"
+                className="mt-6 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-warm px-6 text-[0.72rem] font-semibold tracking-[0.12em] text-black uppercase transition hover:bg-white"
               >
                 Start a project
               </Link>
