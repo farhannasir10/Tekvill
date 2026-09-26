@@ -7,6 +7,7 @@ const links = [
   { href: "/#hero", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/work", label: "Work" },
+  { href: "/about", label: "About us" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -42,6 +43,7 @@ export default function Header() {
                 pathname === link.href ||
                 (link.href === "/services" && pathname?.startsWith("/services")) ||
                 (link.href === "/work" && pathname?.startsWith("/work")) ||
+                (link.href === "/about" && pathname?.startsWith("/about")) ||
                 (link.href === "/contact" && pathname?.startsWith("/contact"))
                   ? "text-white"
                   : ""
