@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const company = [
+  { href: "/about", label: "About us" },
   { href: "/#testimonials", label: "Clients" },
   { href: "/contact", label: "Contact" },
 ];
