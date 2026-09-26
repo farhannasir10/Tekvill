@@ -85,13 +85,13 @@ export default function FinalCTA() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="mailto:hello@tekvill.com"
+                href="/contact"
                 className="inline-flex min-h-12 flex-1 items-center justify-center rounded-full border border-warm bg-warm px-5 text-[0.72rem] font-semibold tracking-[0.12em] text-black uppercase transition hover:-translate-y-px hover:bg-transparent hover:text-warm"
               >
                 Let&apos;s talk <span aria-hidden="true">→</span>
               </Link>
               <Link
-                href="mailto:hello@tekvill.com?subject=Book%20a%20call"
+                href="/contact"
                 className="inline-flex min-h-12 flex-1 items-center justify-center rounded-full border border-white/15 bg-transparent px-5 text-[0.72rem] font-semibold tracking-[0.12em] text-warm uppercase transition hover:border-warm/50 hover:bg-white/[0.04]"
               >
                 Book a call

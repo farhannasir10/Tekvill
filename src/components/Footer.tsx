@@ -1,9 +1,8 @@
 import Link from "next/link";
 
 const company = [
-  { href: "/#approach", label: "Impact" },
   { href: "/#testimonials", label: "Clients" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const work = [

@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative isolate h-dvh overflow-hidden group"
+      className="relative isolate h-[calc(100dvh-3.75rem)] overflow-hidden group"
     >
       <HeroEffects />
 
@@ -61,7 +61,7 @@ export default function Hero() {
         <div className="hero-grain-bg animate-grain pointer-events-none absolute inset-0 opacity-20 mix-blend-overlay" />
       </div>
 
-      <div className="animate-frame-in relative z-2 mx-[clamp(0.75rem,1.5vw,1.25rem)] mt-15 mb-[0.85rem] grid h-[calc(100%-3.75rem-0.85rem)] grid-rows-[auto_minmax(0,1fr)_auto] gap-[clamp(0.5rem,1.2vh,1rem)] border border-warm/16 p-[clamp(0.85rem,1.6vh,1.35rem)_clamp(1rem,1.8vw,1.5rem)]">
+      <div className="animate-frame-in relative z-2 mx-[clamp(0.75rem,1.5vw,1.25rem)] mb-[0.85rem] grid h-[calc(100%-0.85rem)] grid-rows-[auto_minmax(0,1fr)_auto] gap-[clamp(0.5rem,1.2vh,1rem)] border border-warm/16 p-[clamp(0.85rem,1.6vh,1.35rem)_clamp(1rem,1.8vw,1.5rem)]">
         <div className="flex max-w-56 items-center gap-4">
           <span className="text-[0.7rem] font-medium tracking-[0.18em] text-white">
             01
@@ -95,7 +95,7 @@ export default function Hero() {
             </p>
             <div className="animate-rise flex flex-wrap items-center gap-x-6 gap-y-4 opacity-0 [animation-delay:0.9s] max-[600px]:flex-col max-[600px]:items-start">
               <Link
-                href="#contact"
+                href="/contact"
                 className="inline-flex min-h-11 items-center justify-center rounded-sm border border-warm bg-warm px-[1.35rem] text-[0.7rem] font-semibold tracking-[0.12em] text-black uppercase transition hover:-translate-y-px hover:bg-transparent hover:text-warm"
               >
                 Start a project <span aria-hidden="true">→</span>

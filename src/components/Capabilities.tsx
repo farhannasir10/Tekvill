@@ -36,10 +36,10 @@ export default function Capabilities() {
         </div>
 
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
-          {services.map((item) => (
+          {services.slice(0, 6).map((item) => (
             <Link
               key={item.slug}
-              href={`/services#${item.slug}`}
+              href={`/services/${item.slug}`}
               className="group relative flex flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-[0_10px_28px_rgba(15,18,24,0.06)] transition duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_rgba(15,18,24,0.1)] sm:p-7"
             >
               <span

@@ -27,16 +27,15 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "Agent workflows and inference mesh for ops teams that needed answers in seconds — not overnight dashboards.",
     tags: ["AI", "Platform"],
-    cover:
-      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1600&q=80",
+    cover: "/case-studies/enterprise-signal-routing-cover.jpg",
     coverAlt: "Abstract technology and data systems",
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+        src: "/case-studies/enterprise-signal-routing-1.jpg",
         alt: "Circuit board detail",
       },
       {
-        src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+        src: "/case-studies/enterprise-signal-routing-2.jpg",
         alt: "Analytics dashboard",
       },
     ],
@@ -66,16 +65,15 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "Checkout and inventory rebuilt for peak traffic without losing brand precision — conversion up, chaos down.",
     tags: ["Commerce", "Product"],
-    cover:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80",
+    cover: "/case-studies/global-commerce-core-cover.jpg",
     coverAlt: "Modern retail and commerce environment",
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+        src: "/case-studies/global-commerce-core-1.jpg",
         alt: "Product analytics workspace",
       },
       {
-        src: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
+        src: "/case-studies/global-commerce-core-2.jpg",
         alt: "Checkout and payments",
       },
     ],
@@ -105,16 +103,15 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "CI, clusters, and observability that made every deploy intentionally boring — in the best way.",
     tags: ["DevOps", "Cloud"],
-    cover:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80",
+    cover: "/case-studies/delivery-mesh-at-scale-cover.jpg",
     coverAlt: "Global network and infrastructure",
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1544197150-b99a580bb7a2?auto=format&fit=crop&w=1200&q=80",
+        src: "/case-studies/delivery-mesh-at-scale-1.jpg",
         alt: "Server infrastructure",
       },
       {
-        src: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=1200&q=80",
+        src: "/case-studies/delivery-mesh-at-scale-2.jpg",
         alt: "Engineering workstation",
       },
     ],
