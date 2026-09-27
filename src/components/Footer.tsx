@@ -1,3 +1,5 @@
+import Logo from "./Logo";
+import Image from "next/image";
 import Link from "next/link";
 
 const company = [
@@ -28,9 +30,9 @@ export default function Footer() {
           <div>
             <Link
               href="/"
-              className="font-serif text-[1.65rem] font-medium tracking-[0.02em] text-white transition hover:text-warm"
+              className="inline-block transition hover:opacity-80"
             >
-              Tekvill
+              <Logo className="h-10 w-auto" primaryColor="#6eb3ff" textColor="#ffffff" />
             </Link>
             <p className="mt-4 max-w-sm font-ui text-[0.95rem] leading-relaxed text-muted">
               Production studio for AI, product, and infrastructure — built for

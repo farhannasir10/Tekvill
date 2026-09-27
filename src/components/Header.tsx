@@ -1,5 +1,7 @@
 "use client";
 
+import Logo from "./Logo";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -21,9 +23,9 @@ export default function Header() {
     <header className="animate-rise-header relative z-30 grid h-15 grid-cols-[1fr_auto] items-center border-b border-warm/8 bg-black px-[clamp(1.15rem,2.6vw,2.35rem)] md:grid-cols-[1fr_auto_1fr]">
       <Link
         href="/"
-        className="justify-self-start font-serif text-[1.35rem] font-medium tracking-[0.02em] text-white"
+        className="justify-self-start"
       >
-        Tekvill
+        <Logo className="h-9 w-auto md:h-10" primaryColor="#59abff" textColor="#ffffff" />
       </Link>
 
       <nav
