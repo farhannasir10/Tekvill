@@ -17,8 +17,9 @@ const points = [
 ];
 
 const details = [
-  { label: "Email", value: "hello@tekvill.com", href: "mailto:hello@tekvill.com" },
-  { label: "Location", value: "Lahore · Remote" },
+  { label: "Email", value: "info@tekvill.com", href: "mailto:info@tekvill.com" },
+  { label: "Pakistan", value: "Gulberg Lahore" },
+  { label: "United States", value: "USA" },
   { label: "Response", value: "Within 1 business day" },
 ];
 
@@ -100,8 +101,8 @@ export default function ContactPage() {
             </div>
 
             <Link
-              href="mailto:hello@tekvill.com?subject=Book%20a%20call"
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-ink/15 bg-white px-6 text-[0.72rem] font-semibold tracking-[0.12em] text-ink uppercase transition hover:border-[#6eb3ff] hover:text-[#2f7fe8]"
+              href="mailto:info@tekvill.com?subject=Book%20a%20call"
+              className="hidden"
             >
               Book a call →
             </Link>

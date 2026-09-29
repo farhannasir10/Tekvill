@@ -24,7 +24,7 @@ export default function CaseStudies() {
         </div>
 
         <div className="grid gap-5 lg:grid-cols-3">
-          {caseStudies.map((item) => (
+          {caseStudies.slice(0, 3).map((item) => (
             <Link
               key={item.slug}
               href={`/work/${item.slug}`}
@@ -39,39 +39,43 @@ export default function CaseStudies() {
                   className="object-cover transition duration-700 group-hover:scale-[1.04]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0d1017] via-[#0d1017]/55 to-transparent" />
-                <div className="absolute right-5 bottom-4 left-5">
-                  <p className="font-serif text-[clamp(2rem,3vw,2.6rem)] font-medium tracking-[-0.03em] text-white">
-                    {item.metric}
-                  </p>
-                  <p className="mt-0.5 text-[0.62rem] tracking-[0.14em] text-white/65 uppercase">
-                    {item.metricLabel}
-                  </p>
-                </div>
+                {item.metric ? (
+                  <div className="absolute right-5 bottom-4 left-5">
+                    <p className="font-serif text-[clamp(2rem,3vw,2.6rem)] font-medium tracking-[-0.03em] text-white">
+                      {item.metric}
+                    </p>
+                    <p className="mt-0.5 text-[0.62rem] tracking-[0.14em] text-white/65 uppercase">
+                      {item.metricLabel}
+                    </p>
+                  </div>
+                ) : null}
               </div>
 
               <div className="flex flex-1 flex-col p-6 pt-5">
                 <p className="mb-2 text-[0.62rem] font-semibold tracking-[0.16em] text-accent uppercase">
                   {item.sector}
                 </p>
-                <h3 className="mb-3 font-display text-[1.35rem] font-semibold tracking-[-0.02em] text-warm">
-                  {item.title}
+                <h3 className="mb-3 min-h-[2.7em] font-display text-[1.35rem] font-semibold leading-[1.35] tracking-[-0.02em] text-warm">
+                  {item.cardTitle ?? item.title}
                 </h3>
-                <p className="mb-5 flex-1 text-[0.9rem] leading-relaxed text-lede">
+                <p className="line-clamp-4 text-[0.9rem] leading-relaxed text-lede">
                   {item.summary}
                 </p>
-                <div className="mb-5 flex flex-wrap gap-2">
-                  {item.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-white/[0.04] px-3 py-1 text-[0.6rem] tracking-[0.1em] text-muted uppercase ring-1 ring-white/[0.06]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="mt-auto pt-5">
+                  <div className="mb-5 flex min-h-[3.25rem] flex-wrap content-start gap-2">
+                    {item.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-white/[0.04] px-3 py-1 text-[0.6rem] tracking-[0.1em] text-muted uppercase ring-1 ring-white/[0.06]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="text-[0.7rem] font-medium tracking-[0.12em] text-warm/80 uppercase transition group-hover:text-accent">
+                    View case study →
+                  </span>
                 </div>
-                <span className="text-[0.7rem] font-medium tracking-[0.12em] text-warm/80 uppercase transition group-hover:text-accent">
-                  View case study →
-                </span>
               </div>
             </Link>
           ))}

@@ -8,7 +8,7 @@ import { services } from "@/data/services";
 export const metadata: Metadata = {
   title: "Services — Tekvill",
   description:
-    "AI, full stack, mobile, UI/UX, staff augmentation, cloud, product strategy, QA, and data engineering from Tekvill.",
+    "AI, full stack, mobile, product design, staff augmentation, cloud, product strategy, QA, and data engineering from Tekvill.",
 };
 
 export default function ServicesPage() {

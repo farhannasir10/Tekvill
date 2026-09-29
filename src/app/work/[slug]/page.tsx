@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { caseStudies, getCaseStudy } from "@/data/case-studies";
+import { caseStudies, getCaseStudy, workCategories } from "@/data/case-studies";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -33,13 +33,25 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
   const related = caseStudies
     .filter((item) => item.slug !== study.slug)
+    .filter((item) =>
+      item.categories.some((cat) => study.categories.includes(cat))
+    )
     .slice(0, 2);
+
+  const relatedFallback =
+    related.length > 0
+      ? related
+      : caseStudies.filter((item) => item.slug !== study.slug).slice(0, 2);
+
+  const categoryLabels = study.categories
+    .map((id) => workCategories.find((c) => c.id === id)?.label)
+    .filter(Boolean);
 
   return (
     <main className="bg-[#F6F6F6]">
       <Header />
 
-      <section className="relative overflow-hidden bg-black pt-14 pb-16">
+      <section className="relative overflow-hidden bg-black pt-12 pb-14 md:pt-16 md:pb-16">
         <div
           className="pointer-events-none absolute inset-0"
           aria-hidden="true"
@@ -51,122 +63,107 @@ export default async function CaseStudyPage({ params }: PageProps) {
         <div className="relative mx-auto w-[min(1120px,calc(100%-2.5rem))]">
           <Link
             href="/work"
-            className="mb-8 inline-flex text-[0.7rem] font-medium tracking-[0.14em] text-muted uppercase transition hover:text-warm"
+            className="mb-10 inline-flex text-[0.7rem] font-medium tracking-[0.14em] text-muted uppercase transition hover:text-warm"
           >
             ← All case studies
           </Link>
 
-          <p className="mb-4 text-[0.68rem] font-semibold tracking-[0.18em] text-accent uppercase">
-            {study.sector} · {study.client}
-          </p>
-          <h1 className="max-w-3xl font-display text-[clamp(2.4rem,5vw,3.8rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-warm">
-            {study.title}
-          </h1>
-          <p className="mt-5 max-w-2xl text-[1.1rem] leading-relaxed text-lede">
-            {study.summary}
-          </p>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="mb-4 text-[0.68rem] font-semibold tracking-[0.18em] text-accent uppercase">
+              {study.sector}
+            </p>
+            <h1 className="font-display text-[clamp(1.65rem,3.2vw,2.55rem)] font-semibold leading-[1.2] tracking-[-0.03em] text-balance text-warm">
+              {study.heroTitle}
+            </h1>
 
-          <div className="mt-8 flex flex-wrap gap-2">
-            {study.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full bg-white/[0.04] px-3 py-1.5 text-[0.62rem] font-medium tracking-[0.06em] text-muted ring-1 ring-white/[0.08]"
-              >
-                {tag}
-              </span>
-            ))}
+            <div className="mt-8 flex flex-wrap justify-center gap-2">
+              {categoryLabels.map((label) => (
+                <span
+                  key={label}
+                  className="rounded-full bg-white/[0.04] px-3 py-1.5 text-[0.62rem] font-medium tracking-[0.06em] text-muted ring-1 ring-white/[0.08]"
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#F6F6F6] pt-8 pb-4">
-        <div className="relative mx-auto w-[min(1200px,calc(100%-1.5rem))] overflow-hidden rounded-2xl border border-ink/[0.06] shadow-[0_20px_50px_rgba(15,18,24,0.08)]">
-          <div className="relative aspect-[21/9] min-h-[240px]">
+      <section className="bg-[#F6F6F6] pt-8 pb-2">
+        <div className="mx-auto w-[min(920px,calc(100%-2.5rem))]">
+          <div className="overflow-hidden rounded-2xl border border-ink/[0.06] bg-white p-3 shadow-[0_16px_40px_rgba(15,18,24,0.08)] sm:p-5">
             <Image
               src={study.cover}
               alt={study.coverAlt}
-              fill
+              width={1210}
+              height={786}
               priority
-              sizes="100vw"
-              className="object-cover"
+              sizes="(max-width: 920px) 100vw, 920px"
+              className="h-auto w-full rounded-xl"
             />
           </div>
         </div>
       </section>
 
-      <section className="border-y border-ink/[0.06] bg-white">
-        <div className="mx-auto grid w-[min(1120px,calc(100%-2.5rem))] grid-cols-1 divide-y divide-ink/[0.06] sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-          {study.results.map((item) => (
-            <div key={item.label} className="px-2 py-8 text-center sm:px-6">
-              <p className="font-display text-[clamp(2rem,3.5vw,2.8rem)] font-semibold tracking-[-0.03em] text-[#2f7fe8]">
-                {item.value}
-              </p>
-              <p className="mt-2 text-[0.65rem] tracking-[0.14em] text-ink/45 uppercase">
-                {item.label}
-              </p>
+      <section className="bg-[#F6F6F6] py-[clamp(3.5rem,8vh,5.5rem)]">
+        <div className="mx-auto w-[min(800px,calc(100%-2.5rem))] space-y-10">
+          {study.overview ? (
+            <p className="text-[1.08rem] leading-relaxed text-ink-soft">
+              {study.overview}
+            </p>
+          ) : null}
+
+          {study.sections.map((section) => (
+            <div
+              key={section.title}
+              className="rounded-2xl border border-ink/[0.06] bg-white p-8 shadow-[0_12px_36px_rgba(15,18,24,0.05)] md:p-10"
+            >
+              <h2 className="font-display text-[clamp(1.4rem,2.5vw,1.85rem)] font-semibold tracking-[-0.02em] text-ink">
+                {section.title}
+              </h2>
+              <div className="mt-6 space-y-5">
+                {section.items.map((item, i) => (
+                  <div key={`${section.title}-${i}`}>
+                    {item.heading ? (
+                      <h3 className="font-display text-[1.05rem] font-semibold text-ink">
+                        {item.heading}
+                      </h3>
+                    ) : null}
+                    <p
+                      className={`text-[1.02rem] leading-relaxed text-ink-soft ${item.heading ? "mt-2" : ""}`}
+                    >
+                      {item.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
-        </div>
-      </section>
 
-      <section className="bg-[#F6F6F6] py-[clamp(4rem,9vh,6.5rem)]">
-        <div className="mx-auto grid w-[min(1120px,calc(100%-2.5rem))] gap-6 lg:grid-cols-2 lg:gap-8">
-          <div className="rounded-2xl border border-ink/[0.06] bg-white p-8 shadow-[0_12px_36px_rgba(15,18,24,0.05)] md:p-10">
-            <h2 className="font-display text-[clamp(1.5rem,3vw,1.9rem)] font-semibold tracking-[-0.02em] text-ink">
-              The challenge
-            </h2>
-            <p className="mt-4 text-[1.05rem] leading-relaxed text-ink-soft">
-              {study.challenge}
+          {study.closing ? (
+            <p className="text-[1.05rem] leading-relaxed text-ink-soft">
+              {study.closing}
             </p>
-          </div>
-          <div className="rounded-2xl border border-ink/[0.06] bg-white p-8 shadow-[0_12px_36px_rgba(15,18,24,0.05)] md:p-10">
-            <h2 className="font-display text-[clamp(1.5rem,3vw,1.9rem)] font-semibold tracking-[-0.02em] text-ink">
-              How we approached it
-            </h2>
-            <ol className="mt-5 space-y-4">
-              {study.approach.map((step, i) => (
-                <li
-                  key={step}
-                  className="flex gap-4 text-[1.02rem] leading-relaxed text-ink-soft"
-                >
-                  <span className="font-display font-semibold text-[#2f7fe8]">
-                    0{i + 1}
+          ) : null}
+
+          {study.techStack.length > 0 ? (
+            <div className="rounded-2xl border border-ink/[0.06] bg-white p-8 shadow-[0_12px_36px_rgba(15,18,24,0.05)] md:p-10">
+              <h2 className="font-display text-[clamp(1.4rem,2.5vw,1.85rem)] font-semibold tracking-[-0.02em] text-ink">
+                Tech Stack
+              </h2>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {study.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-md bg-[#e8f2ff] px-3 py-1.5 text-[0.75rem] font-medium tracking-[0.04em] text-[#2f7fe8]"
+                  >
+                    {tech}
                   </span>
-                  <span>{step}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-ink/[0.06] bg-white py-[clamp(4rem,9vh,6.5rem)]">
-        <div className="mx-auto w-[min(1120px,calc(100%-2.5rem))]">
-          <div className="grid gap-5 md:grid-cols-2">
-            {study.gallery.map((image) => (
-              <div
-                key={image.src}
-                className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-ink/[0.06] shadow-[0_12px_36px_rgba(15,18,24,0.05)]"
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
+                ))}
               </div>
-            ))}
-          </div>
-
-          <div className="mt-14 max-w-3xl">
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.1rem)] font-semibold tracking-[-0.02em] text-ink">
-              The outcome
-            </h2>
-            <p className="mt-4 text-[1.15rem] leading-relaxed text-ink-soft">
-              {study.outcome}
-            </p>
-          </div>
+            </div>
+          ) : null}
         </div>
       </section>
 
@@ -189,13 +186,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </Link>
         </div>
 
-        {related.length > 0 ? (
+        {relatedFallback.length > 0 ? (
           <div className="mx-auto mt-16 w-[min(1120px,calc(100%-2.5rem))]">
             <h3 className="mb-6 font-display text-xl font-semibold text-ink">
               More work
             </h3>
             <div className="grid gap-4 md:grid-cols-2">
-              {related.map((item) => (
+              {relatedFallback.map((item) => (
                 <Link
                   key={item.slug}
                   href={`/work/${item.slug}`}

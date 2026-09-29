@@ -39,10 +39,10 @@ export default function Footer() {
               teams that need what still works after launch.
             </p>
             <a
-              href="mailto:hello@tekvill.com"
+              href="mailto:info@tekvill.com"
               className="mt-7 inline-flex items-center gap-2 font-ui text-[0.95rem] text-warm transition hover:text-accent"
             >
-              hello@tekvill.com
+              info@tekvill.com
               <span aria-hidden="true" className="text-accent">
                 →
               </span>
@@ -92,7 +92,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Tekvill. All rights reserved.
           </p>
           <p className="font-ui text-[0.72rem] tracking-[0.14em] text-muted/80 uppercase">
-            Lahore · Remote
+            Gulberg Lahore · USA
           </p>
         </div>
       </div>

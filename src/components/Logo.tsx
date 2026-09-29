@@ -41,10 +41,10 @@ export default function Logo({
         />
         
         {/* Base Text */}
-        <text x="50" y="0" className="tekvill-logo-font" fill={textColor} transform="skewX(-7)">ekvill</text>
+        <text x="50" y="0" className="tekvill-logo-font" fill={textColor}>ekvill</text>
         
         {/* Overlay Text (Blue dot) */}
-        <text x="50" y="0" className="tekvill-logo-font" fill={primaryColor} clipPath="url(#clip-dot-123)" transform="skewX(-7)">ekvill</text>
+        <text x="50" y="0" className="tekvill-logo-font" fill={primaryColor} clipPath="url(#clip-dot-123)">ekvill</text>
       </g>
     </svg>
   );

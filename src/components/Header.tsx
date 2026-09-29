@@ -61,7 +61,7 @@ export default function Header() {
         href="/contact"
         className="justify-self-end rounded-full border border-warm/35 px-[0.95rem] py-2 text-[0.72rem] font-medium tracking-[0.14em] text-warm uppercase transition-colors hover:border-warm hover:bg-warm hover:text-black"
       >
-        Contact
+        Impact
       </Link>
     </header>
   );

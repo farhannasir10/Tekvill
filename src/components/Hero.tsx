@@ -71,27 +71,31 @@ export default function Hero() {
             aria-hidden="true"
           />
           <span className="hidden whitespace-nowrap text-[0.65rem] font-normal tracking-[0.12em] text-muted uppercase md:inline">
-            31.52° N · 74.35° E
+            LATENCY &lt; 12MS
           </span>
         </div>
 
         <div className="grid min-h-0 items-center gap-[clamp(1.25rem,2.5vw,2.25rem)] py-0 pr-[clamp(0.15rem,0.8vw,0.5rem)] pl-[clamp(2.25rem,6vw,5.5rem)] max-[980px]:grid-cols-1 max-[980px]:px-0 min-[981px]:grid-cols-[minmax(0,1.1fr)_minmax(340px,1fr)] min-[981px]:max-[1200px]:pl-[clamp(1.5rem,4vw,3rem)]">
           <div className="z-2 flex min-h-0 max-w-[44rem] flex-col justify-center justify-self-stretch">
             <p className="animate-rise mb-[clamp(0.7rem,1.5vh,1.1rem)] text-[0.7rem] font-semibold tracking-[0.28em] text-white uppercase [animation-delay:0.25s] opacity-0">
-              Product & brand studio
+              Product & AI Studio
             </p>
             <h1 className="mb-[clamp(0.75rem,1.8vh,1.25rem)] font-serif text-[clamp(2.2rem,9vw,3.6rem)] font-medium leading-[1.06] tracking-[-0.03em] text-warm md:text-[clamp(2.6rem,5vw,4.6rem)] min-[981px]:max-[1200px]:text-[clamp(2.4rem,4vw,3.6rem)]">
               <span className="animate-rise block opacity-0 [animation-delay:0.35s] [animation-duration:1.05s]">
-                A first impression that
+                End
+                <span className="inline-block font-ui font-medium not-italic">-</span>
+                to
+                <span className="inline-block font-ui font-medium not-italic">-</span>
+                end products
               </span>
               <span className="animate-rise block text-accent opacity-0 [animation-delay:0.48s] [animation-duration:1.05s]">
-                holds its weight.
+                powered by advanced AI.
               </span>
             </h1>
             <p className="animate-rise mb-[clamp(1rem,2.4vh,1.75rem)] max-w-[38rem] text-[clamp(1.08rem,1.5vw,1.28rem)] leading-[1.6] font-normal text-lede opacity-0 [animation-delay:0.75s]">
-              Tekvill plans, designs, and ships digital products for companies
-              that need to look exact — not loud. Black, white, and the work in
-              between.
+              Tekvill plans, architects, and ships intelligent digital products.
+              We bridge the gap between complex AI models and flawless product
+              engineering, delivering software that simply works.
             </p>
             <div className="animate-rise flex flex-wrap items-center gap-x-6 gap-y-4 opacity-0 [animation-delay:0.9s] max-[600px]:flex-col max-[600px]:items-start">
               <Link

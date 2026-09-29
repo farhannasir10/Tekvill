@@ -92,7 +92,7 @@ export default function FinalCTA() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex min-h-12 flex-1 items-center justify-center rounded-full border border-white/15 bg-transparent px-5 text-[0.72rem] font-semibold tracking-[0.12em] text-warm uppercase transition hover:border-warm/50 hover:bg-white/[0.04]"
+                className="hidden"
               >
                 Book a call
               </Link>
@@ -100,13 +100,13 @@ export default function FinalCTA() {
 
             <div className="mt-7 flex items-center justify-between gap-4 border-t border-white/[0.07] pt-5">
               <a
-                href="mailto:hello@tekvill.com"
+                href="mailto:info@tekvill.com"
                 className="font-ui text-[0.88rem] text-muted transition hover:text-accent"
               >
-                hello@tekvill.com
+                info@tekvill.com
               </a>
               <span className="hidden font-ui text-[0.72rem] tracking-[0.06em] text-muted/70 uppercase sm:inline">
-                Lahore · Remote
+                Gulberg Lahore · USA
               </span>
             </div>
           </div>
