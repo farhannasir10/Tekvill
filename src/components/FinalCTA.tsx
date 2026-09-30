@@ -106,7 +106,7 @@ export default function FinalCTA() {
                 info@tekvill.com
               </a>
               <span className="hidden font-ui text-[0.72rem] tracking-[0.06em] text-muted/70 uppercase sm:inline">
-                Gulberg Lahore · USA
+                Gulberg Lahore · Austin, TX
               </span>
             </div>
           </div>

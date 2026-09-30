@@ -1,0 +1,78 @@
+{
+  "ai-development": {
+    "uploads": [],
+    "savedData": [
+      "/services/detail/ai-development/live-01.webp",
+      "/services/detail/ai-development/live-02.webp",
+      "/services/detail/ai-development/live-03.webp",
+      "/services/detail/ai-development/live-04.webp"
+    ]
+  },
+  "full-stack-development": {
+    "uploads": [],
+    "savedData": [
+      "/services/detail/full-stack-development/live-01.webp",
+      "/services/detail/full-stack-development/live-02.webp",
+      "/services/detail/full-stack-development/live-03.webp",
+      "/services/detail/full-stack-development/live-04.webp"
+    ]
+  },
+  "mobile-app-development": {
+    "uploads": [],
+    "savedData": [
+      "/services/detail/mobile-app-development/live-01.webp",
+      "/services/detail/mobile-app-development/live-02.webp",
+      "/services/detail/mobile-app-development/live-03.webp",
+      "/services/detail/mobile-app-development/live-04.webp"
+    ]
+  },
+  "staff-augmentation": {
+    "uploads": [
+      "https://www.tekvill.com/wp-content/uploads/2024/03/Staff-Augmentation-1-1536x1024-1.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/02/discovery-and-requirements-gathering-1024x683.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/02/data-collection-1024x683.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/02/evaluation-validation-1024x576.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/02/Model-selecion-and-development-1024x683.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/02/data-analysis-1024x683.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/02/Deployment-and-Integration-1024x562.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/cost-saving-1.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/scalibiltiy-1.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/development-speed-up-2.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/specialized-skills-2.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/specialized-skills-1.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/quick-results-2.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/less-responsbilty-1.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/agility-1.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/assumption-verification-1.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/pexels-pavel-danilyuk-6340641-scaled.jpg"
+    ],
+    "savedData": []
+  },
+  "ui-ux-design": {
+    "uploads": [
+      "https://www.tekvill.com/wp-content/uploads/2024/01/Product-Design-scaled.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/02/discovery-and-requirements-gathering-1024x683.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/02/data-collection-1024x683.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/02/evaluation-validation-1024x576.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/02/Model-selecion-and-development-1024x683.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/02/data-analysis-1024x683.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/02/Deployment-and-Integration-1024x562.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/pexels-pavel-danilyuk-6340641-scaled.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2026/04/Lawmatics-Dashboard-Var-1-1024x576.webp",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/scalibiltiy-1.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/cost-saving-1.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/development-speed-up-2.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/specialized-skills-2.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/specialized-skills-1.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/quick-results-2.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/less-responsbilty-1.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/agility-1.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/assumption-verification-1.png",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/Product-Design-1-1024x684.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/product-design-2-1024x683.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/product-design-3-1024x683.jpg",
+      "https://www.tekvill.com/wp-content/uploads/2024/01/Product-design-4-1024x683.jpg"
+    ],
+    "savedData": []
+  }
+}

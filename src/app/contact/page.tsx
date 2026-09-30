@@ -18,8 +18,8 @@ const points = [
 
 const details = [
   { label: "Email", value: "info@tekvill.com", href: "mailto:info@tekvill.com" },
-  { label: "Pakistan", value: "Gulberg Lahore" },
-  { label: "United States", value: "USA" },
+  { label: "Pakistan", value: "Gulberg, Lahore" },
+  { label: "United States", value: "Austin, Texas" },
   { label: "Response", value: "Within 1 business day" },
 ];
 

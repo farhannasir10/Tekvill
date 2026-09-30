@@ -6,6 +6,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ServiceIcon from "@/components/ServiceIcon";
 import { getService, services } from "@/data/services";
+import { getServiceMedia } from "@/data/service-media";
+import { structureService } from "@/lib/structureService";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -17,7 +19,6 @@ export function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-  
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const service = getService(slug);
@@ -33,6 +34,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const service = getService(slug);
   if (!service) notFound();
 
+  const media = getServiceMedia(service.slug);
+  const structured = structureService(service);
   const related = services
     .filter((item) => item.slug !== service.slug)
     .slice(0, 3);
@@ -87,11 +90,12 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="bg-[#F6F6F6] py-[clamp(3.5rem,8vh,5.5rem)]">
-        <div className="mx-auto mb-8 w-[min(1120px,calc(100%-2.5rem))] overflow-hidden rounded-2xl border border-ink/[0.06] shadow-[0_16px_44px_rgba(15,18,24,0.06)]">
-          <div className="relative aspect-[21/9] min-h-[200px]">
+      {/* Hero image */}
+      <section className="bg-[#F6F6F6] pt-[clamp(2rem,5vh,3.5rem)]">
+        <div className="mx-auto w-[min(1120px,calc(100%-2.5rem))] overflow-hidden rounded-2xl shadow-[0_16px_44px_rgba(15,18,24,0.08)]">
+          <div className="relative aspect-[16/9] min-h-[240px]">
             <Image
-              src={service.cover}
+              src={media.hero}
               alt={service.coverAlt}
               fill
               priority
@@ -100,72 +104,198 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             />
           </div>
         </div>
+      </section>
 
-        <div className="mx-auto grid w-[min(1120px,calc(100%-2.5rem))] gap-6 lg:grid-cols-[1.25fr_0.75fr] lg:gap-8">
-          <div className="rounded-2xl bg-white p-8 shadow-[0_16px_44px_rgba(15,18,24,0.06)] md:p-10">
+      {/* Intro */}
+      <section className="bg-[#F6F6F6] py-[clamp(3rem,7vh,4.5rem)]">
+        <div className="mx-auto w-[min(720px,calc(100%-2.5rem))] text-center">
+          {structured.introTitle ? (
+            <h2 className="font-display text-[clamp(1.6rem,3.5vw,2.2rem)] font-semibold tracking-[-0.02em] text-ink">
+              {structured.introTitle}
+            </h2>
+          ) : null}
+          <p
+            className={`text-[1.08rem] leading-[1.75] text-ink-soft ${structured.introTitle ? "mt-5" : ""}`}
+          >
+            {structured.intro || service.overview}
+          </p>
+        </div>
+      </section>
+
+      {/* Process with alternating images */}
+      <section className="bg-white py-[clamp(3.5rem,8vh,5.5rem)]">
+        <div className="mx-auto mb-12 w-[min(720px,calc(100%-2.5rem))] text-center">
+          <p className="mb-3 font-ui text-[0.68rem] font-semibold tracking-[0.18em] text-[#2f7fe8] uppercase">
+            Process
+          </p>
+          <h2 className="font-display text-[clamp(1.6rem,3.5vw,2.2rem)] font-semibold tracking-[-0.02em] text-ink">
+            {structured.processTitle}
+          </h2>
+          {structured.processIntro ? (
+            <p className="mt-4 text-[1.02rem] leading-relaxed text-ink-soft">
+              {structured.processIntro}
+            </p>
+          ) : null}
+        </div>
+
+        <div className="mx-auto flex w-[min(1120px,calc(100%-2.5rem))] flex-col gap-14 md:gap-20">
+          {structured.process.map((step, i) => {
+            const image =
+              media.process[i % media.process.length] || media.hero;
+            const reverse = i % 2 === 1;
+            return (
+              <div
+                key={`${step.title}-${i}`}
+                className={`grid items-center gap-8 lg:grid-cols-2 lg:gap-12 ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}
+              >
+                <div className="relative aspect-[16/11] overflow-hidden rounded-2xl shadow-[0_16px_40px_rgba(15,18,24,0.08)]">
+                  <Image
+                    src={image}
+                    alt={step.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="mb-3 font-display text-[1.15rem] font-semibold tracking-[-0.02em] text-[#2f7fe8]">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="font-display text-[clamp(1.25rem,2.5vw,1.55rem)] font-semibold tracking-[-0.02em] text-ink">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 text-[1.02rem] leading-relaxed text-ink-soft">
+                    {step.body}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Mid image band */}
+      <section className="bg-[#F6F6F6] py-4 md:py-6">
+        <div className="relative mx-auto aspect-[21/9] min-h-[200px] w-[min(1120px,calc(100%-2.5rem))] overflow-hidden rounded-2xl">
+          <Image
+            src={media.mid}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      </section>
+
+      {/* Benefits grid */}
+      {structured.benefits.length > 0 ? (
+        <section className="bg-[#F6F6F6] py-[clamp(3.5rem,8vh,5.5rem)]">
+          <div className="mx-auto mb-10 w-[min(720px,calc(100%-2.5rem))] text-center">
             <p className="mb-3 font-ui text-[0.68rem] font-semibold tracking-[0.18em] text-[#2f7fe8] uppercase">
-              Overview
+              Benefits
             </p>
-            <p className="text-[1.08rem] leading-[1.7] text-ink-soft">
-              {service.overview}
-            </p>
-
-            <div className="mt-12 border-t border-ink/[0.06] pt-10">
-              <p className="mb-5 font-ui text-[0.68rem] font-semibold tracking-[0.18em] text-[#2f7fe8] uppercase">
-                How we work
+            <h2 className="font-display text-[clamp(1.6rem,3.5vw,2.2rem)] font-semibold tracking-[-0.02em] text-ink">
+              {structured.benefitsTitle}
+            </h2>
+            {structured.benefitsIntro ? (
+              <p className="mt-4 text-[1.02rem] leading-relaxed text-ink-soft">
+                {structured.benefitsIntro}
               </p>
-              <ol className="space-y-5">
-                {service.process.map((step, i) => (
-                  <li key={step} className="flex gap-4">
-                    <span className="font-display text-[1.05rem] font-semibold tracking-[-0.02em] text-[#2f7fe8]">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <p className="text-[1rem] leading-relaxed text-ink">
-                      {step}
-                    </p>
-                  </li>
-                ))}
-              </ol>
-            </div>
+            ) : null}
           </div>
 
-          <aside className="flex h-fit flex-col gap-5">
-            <div className="rounded-2xl bg-white p-7 shadow-[0_16px_44px_rgba(15,18,24,0.06)] md:p-8">
-              <p className="mb-4 font-ui text-[0.68rem] font-semibold tracking-[0.18em] text-[#2f7fe8] uppercase">
-                What you get
-              </p>
-              <ul className="space-y-3.5">
-                {service.deliverables.map((item) => (
-                  <li
-                    key={item}
-                    className="flex gap-3 text-[0.92rem] leading-relaxed text-ink-soft"
-                  >
-                    <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#2f7fe8]" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="mx-auto grid w-[min(1120px,calc(100%-2.5rem))] gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {structured.benefits.map((item, i) => (
+              <div key={`${item.title}-${i}`} className="bg-white p-6 md:p-7">
+                <div className="relative mb-5 h-14 w-14">
+                  <Image
+                    src={media.icons[i % media.icons.length]}
+                    alt=""
+                    fill
+                    sizes="56px"
+                    className="object-contain"
+                  />
+                </div>
+                <h3 className="font-display text-[1.08rem] font-semibold text-ink">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-soft">
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
-            <div className="rounded-2xl border border-white/[0.07] bg-black p-7 shadow-[0_16px_44px_rgba(0,0,0,0.25)] md:p-8">
-              <p className="font-display text-[1.25rem] font-semibold tracking-[-0.02em] text-warm">
-                Ready to ship this?
+      {/* Why / split */}
+      {structured.why.length > 0 ? (
+        <section className="bg-white py-[clamp(3.5rem,8vh,5.5rem)]">
+          <div className="mx-auto grid w-[min(1120px,calc(100%-2.5rem))] items-center gap-10 lg:grid-cols-2 lg:gap-14">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-[0_16px_40px_rgba(15,18,24,0.08)] sm:aspect-[5/6]">
+              <Image
+                src={media.split}
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <p className="mb-3 font-ui text-[0.68rem] font-semibold tracking-[0.18em] text-[#2f7fe8] uppercase">
+                Why Tekvill
               </p>
-              <p className="mt-2 text-[0.9rem] leading-relaxed text-lede">
-                Tell us the outcome you need — we&apos;ll map the engagement.
-              </p>
+              <h2 className="font-display text-[clamp(1.6rem,3.5vw,2.1rem)] font-semibold tracking-[-0.02em] text-ink">
+                {structured.whyTitle}
+              </h2>
+              {structured.whyIntro ? (
+                <p className="mt-4 text-[1.02rem] leading-relaxed text-ink-soft">
+                  {structured.whyIntro}
+                </p>
+              ) : null}
+              <div className="mt-8 space-y-6">
+                {structured.why.map((item, i) => (
+                  <div key={`${item.title}-${i}`}>
+                    <h3 className="font-display text-[1.05rem] font-semibold text-ink">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1.5 text-[0.95rem] leading-relaxed text-ink-soft">
+                      {item.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
               <Link
                 href="/contact"
-                className="mt-6 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-warm px-6 text-[0.72rem] font-semibold tracking-[0.12em] text-black uppercase transition hover:bg-white"
+                className="mt-10 inline-flex min-h-11 items-center justify-center rounded-full bg-black px-7 text-[0.72rem] font-semibold tracking-[0.12em] text-warm uppercase transition hover:bg-[#2f7fe8]"
               >
                 Start a project
               </Link>
             </div>
-          </aside>
-        </div>
-      </section>
+          </div>
+        </section>
+      ) : (
+        <section className="bg-black py-[clamp(3.5rem,8vh,5rem)]">
+          <div className="mx-auto flex w-[min(1120px,calc(100%-2.5rem))] flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+            <div>
+              <p className="font-display text-[clamp(1.5rem,3vw,2rem)] font-semibold text-warm">
+                Ready to ship this?
+              </p>
+              <p className="mt-2 max-w-xl text-[0.95rem] leading-relaxed text-lede">
+                Tell us the outcome you need — we&apos;ll map the engagement.
+              </p>
+            </div>
+            <Link
+              href="/contact"
+              className="inline-flex min-h-11 items-center justify-center rounded-full bg-warm px-7 text-[0.72rem] font-semibold tracking-[0.12em] text-black uppercase transition hover:bg-white"
+            >
+              Start a project
+            </Link>
+          </div>
+        </section>
+      )}
 
-      <section className="border-t border-ink/[0.05] bg-white py-[clamp(4rem,9vh,6rem)]">
+      <section className="border-t border-ink/[0.05] bg-[#F6F6F6] py-[clamp(4rem,9vh,6rem)]">
         <div className="mx-auto w-[min(1120px,calc(100%-2.5rem))]">
           <div className="mb-8 flex items-end justify-between gap-4">
             <h2 className="font-display text-[clamp(1.5rem,3vw,2rem)] font-semibold text-ink">
@@ -183,11 +313,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               <Link
                 key={item.slug}
                 href={`/services/${item.slug}`}
-                className="group overflow-hidden rounded-2xl bg-[#F6F6F6] transition hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(15,18,24,0.08)]"
+                className="group overflow-hidden rounded-2xl bg-white transition hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(15,18,24,0.08)]"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
-                    src={item.cover}
+                    src={getServiceMedia(item.slug).hero}
                     alt={item.coverAlt}
                     fill
                     sizes="33vw"
