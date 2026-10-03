@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "50+", label: "Products shipped" },
-  { value: "98%", label: "Client retention" },
-  { value: "6", label: "Core disciplines" },
-  { value: "24h", label: "Average response" },
+  { value: "10+", label: "Years of Industry Experience" },
+  { value: "150+", label: "Successful Products Delivered" },
+  { value: "25+", label: "Custom AI Models Deployed" },
+  { value: "3", label: "Countries" },
 ];
 
 const pillars = [

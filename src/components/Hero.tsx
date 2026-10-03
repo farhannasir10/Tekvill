@@ -263,18 +263,20 @@ export default function Hero() {
         <div className="animate-rise border-t border-warm/14 pt-[clamp(0.75rem,1.6vh,1.1rem)] opacity-0 [animation-delay:1.05s]">
           <ul className="flex w-full list-none flex-wrap items-center gap-[clamp(1rem,2.8vw,2.75rem)] p-0 max-[600px]:gap-x-[1.35rem] max-[600px]:gap-y-[0.85rem]">
             <li className="text-[0.68rem] font-bold tracking-[0.18em] text-warm uppercase">
-              Partners
+              By the numbers
             </li>
-            {["Helion", "Northline", "Vesper", "Kindred", "Atlas Freight"].map(
-              (name) => (
-                <li
-                  key={name}
-                  className="text-[0.68rem] font-medium tracking-[0.16em] text-warm/48 uppercase"
-                >
-                  {name}
-                </li>
-              )
-            )}
+            {[
+              "10+ Years on market",
+              "US · Canada Global Presence",
+              "150+ Solutions shipped",
+            ].map((item) => (
+              <li
+                key={item}
+                className="text-[0.68rem] font-medium tracking-[0.16em] text-warm/48 uppercase"
+              >
+                {item}
+              </li>
+            ))}
           </ul>
         </div>
       </div>

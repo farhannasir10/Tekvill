@@ -92,7 +92,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Tekvill. All rights reserved.
           </p>
           <p className="font-ui text-[0.72rem] tracking-[0.14em] text-muted/80 uppercase">
-            Gulberg Lahore · Austin, TX
+            Gulberg Lahore · Murrieta, US · Toronto, Canada
           </p>
         </div>
       </div>

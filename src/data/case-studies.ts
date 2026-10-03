@@ -1,6 +1,7 @@
 export type WorkCategoryId =
   | "ai-development"
   | "design-development"
+  | "full-stack-development"
   | "mobile-app-development"
   | "mvp-development"
   | "product-design"
@@ -19,6 +20,7 @@ export const workCategories: WorkCategory[] = [
   { id: "all", label: "See All" },
   { id: "ai-development", label: "AI Development" },
   { id: "design-development", label: "Design and Development" },
+  { id: "full-stack-development", label: "Full Stack Development" },
   { id: "mobile-app-development", label: "Mobile App Development" },
   { id: "mvp-development", label: "MVP development" },
   { id: "product-design", label: "Product Design" },
@@ -47,6 +49,8 @@ export type CaseStudy = {
   categories: WorkCategoryId[];
   techStack: string[];
   overview: string;
+  /** Three outcome stats shown under overview on the detail page */
+  highlights: [string, string, string];
   sections: CaseStudySection[];
   closing?: string;
   /** Homepage card helpers (derived from live content) */
@@ -59,13 +63,13 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "revolutionizing-property-management-with-estatepro",
-    title: "Revolutionizing Property Management with Estatepro",
-    heroTitle: "Revolutionizing Property Management with Estatepro",
+    title: "AI-Powered Property Management Platform",
+    heroTitle: "AI-Powered Property Management Platform",
     summary:
-      "Estatepro envisioned an AI-driven property management system to streamline rentals, tenant communication, and automated payments.",
+      "An AI-driven property management system to streamline rentals, tenant communication, and automated payments.",
     cover:
       "/case-studies/revolutionizing-property-management-with-estatepro-cover.webp",
-    coverAlt: "Estatepro property management case study",
+    coverAlt: "Property management platform case study",
     categories: [
       "ai-development",
       "design-development",
@@ -87,18 +91,23 @@ export const caseStudies: CaseStudy[] = [
       "jQuery",
     ],
     overview:
-      "Estatepro envisioned a comprehensive property management system, empowering owners to efficiently oversee their rentals. Their goal was to streamline tenant communication, issue resolution, rent payments, and incorporate AI-driven functionalities for an enhanced user experience.",
+      "The client envisioned a comprehensive property management system, empowering owners to efficiently oversee their rentals. The goal was to streamline tenant communication, issue resolution, rent payments, and incorporate AI-driven functionalities for an enhanced user experience.",
+    highlights: [
+      "4-year partnership from MVP to production",
+      "AI query resolution for faster tenant support",
+      "Funding unlocked with a shippable MVP",
+    ],
     sections: [
       {
         title: "Challenges Faced",
         items: [
           {
             heading: "Complex Requirements:",
-            body: "Estatepro sought a multifaceted solution integrating various functionalities—tenant issue reporting, discussion boards, polls, rent payment, and AI-powered assistance. Accommodating these diverse features posed a significant challenge.",
+            body: "The client sought a multifaceted solution integrating tenant issue reporting, discussion boards, polls, rent payment, and AI-powered assistance. Accommodating these diverse features posed a significant challenge.",
           },
           {
             heading: "Technical Expertise and MVP Development:",
-            body: "They approached Tekvill seeking an MVP (Minimum Viable Product) to showcase their vision. Tekvill needed to devise a robust system that amalgamated UI/UX design, functionality, and database management while ensuring seamless integration.",
+            body: "They approached Tekvill seeking an MVP to showcase their vision. Tekvill needed to devise a robust system that amalgamated UI/UX design, functionality, and database management while ensuring seamless integration.",
           },
         ],
       },
@@ -107,7 +116,7 @@ export const caseStudies: CaseStudy[] = [
         items: [
           {
             heading: "Collaborative Approach:",
-            body: "Tekvill undertook a collaborative approach, engaging closely with Estatepro to comprehend their nuanced requirements. This involved comprehensive brainstorming sessions to align expectations with technical feasibility.",
+            body: "Tekvill undertook a collaborative approach, engaging closely with the client to comprehend their nuanced requirements. This involved comprehensive brainstorming sessions to align expectations with technical feasibility.",
           },
           {
             heading: "MVP Development:",
@@ -115,7 +124,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Continuous Enhancement:",
-            body: "The success of the MVP led to a long-term partnership spanning four years. Tekvill continued to work alongside Estatepro, progressively enhancing features, refining user interfaces, and integrating advanced AI algorithms to elevate the platform’s efficiency.",
+            body: "The success of the MVP led to a long-term partnership spanning four years. Tekvill continued to enhance features, refine user interfaces, and integrate advanced AI algorithms to elevate the platform’s efficiency.",
           },
         ],
       },
@@ -124,11 +133,11 @@ export const caseStudies: CaseStudy[] = [
         items: [
           {
             heading: "Funding Success:",
-            body: "The delivered MVP played a pivotal role in Estatepro’s funding efforts, attracting investments due to its innovative approach and functional capabilities.",
+            body: "The delivered MVP played a pivotal role in the client’s funding efforts, attracting investments due to its innovative approach and functional capabilities.",
           },
           {
             heading: "Sustained Collaboration and Growth:",
-            body: "Over four years of collaboration, the platform evolved significantly, catering to evolving market needs. The continuous enhancement ensured sustained user engagement and a competitive edge in the property management sector.",
+            body: "Over four years of collaboration, the platform evolved significantly, catering to evolving market needs. Continuous enhancement ensured sustained user engagement and a competitive edge in the property management sector.",
           },
           {
             heading: "Positive User Feedback:",
@@ -138,7 +147,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     closing:
-      "This case study showcases how Estatepro’s vision, combined with Tekvill’s technical expertise, culminated in a successful MVP and a sustained partnership, resulting in continuous innovation and growth in the property management domain.",
+      "This case study showcases how a clear product vision, combined with Tekvill’s technical expertise, culminated in a successful MVP and a sustained partnership — continuous innovation and growth in property management.",
     metric: "4 yrs",
     metricLabel: "partnership",
     sector: "AI Development",
@@ -146,12 +155,12 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "legal-ace",
-    title: "Transforming Legal Practice with Legal Ace",
-    heroTitle: "Transforming Legal Practice with Legal Ace",
+    title: "Legal Practice Management System",
+    heroTitle: "Legal Practice Management System",
     summary:
-      "Legal Ace needed a practice management system to boost team efficiency, track performance, and unify notifications, calendar, and training tools.",
+      "A practice management system to boost team efficiency, track performance, and unify notifications, calendar, and training tools.",
     cover: "/case-studies/legal-ace-cover.webp",
-    coverAlt: "Legal Ace practice management case study",
+    coverAlt: "Legal practice management case study",
     categories: [
       "ai-development",
       "mobile-app-development",
@@ -173,18 +182,23 @@ export const caseStudies: CaseStudy[] = [
       "MySQL",
     ],
     overview:
-      "Legal Ace, a forward-thinking legal firm, envisioned a revolutionary Legal Practice Management System to optimize their legal teams’ efficiency, analyse individual performance, and create a streamlined workflow. The system aimed to integrate essential tools such as in-app notifications, calendar synchronization, Microsoft Teams integration, live training modules, white-labelling, concierge onboarding, and dedicated data servers.",
+      "A forward-thinking legal firm envisioned a Legal Practice Management System to optimize team efficiency, analyse individual performance, and create a streamlined workflow. The system aimed to integrate in-app notifications, calendar synchronization, Microsoft Teams integration, live training modules, white-labelling, concierge onboarding, and dedicated data servers.",
+    highlights: [
+      "Cross-platform MVP for iOS and Android",
+      "Unified calendar, Teams, and training tools",
+      "Funding secured on the delivered MVP",
+    ],
     sections: [
       {
         title: "Challenges Faced",
         items: [
           {
             heading: "Complex Tool Integration and Performance Metrics:",
-            body: "Legal Ace faced the challenge of integrating a diverse set of tools seamlessly into their legal practice management system. Ensuring optimal performance, analyzing individual capacity, and boosting team efficiency were paramount, requiring a delicate balance of functionalities.",
+            body: "The client faced the challenge of integrating a diverse set of tools seamlessly into their legal practice management system. Ensuring optimal performance, analyzing individual capacity, and boosting team efficiency required a careful balance of functionalities.",
           },
           {
             heading: "Technical Implementation:",
-            body: "Tekvill was tasked with developing a robust Minimum Viable Product (MVP) that incorporated the specified features while ensuring a smooth user experience. The technical challenge included employing React Native for cross-platform compatibility, JavaScript for front-end development, Redux for state management, and MySQL for database management.",
+            body: "Tekvill was tasked with developing a robust MVP that incorporated the specified features while ensuring a smooth user experience. The technical challenge included React Native for cross-platform compatibility, JavaScript for front-end development, Redux for state management, and MySQL for database management.",
           },
         ],
       },
@@ -193,15 +207,15 @@ export const caseStudies: CaseStudy[] = [
         items: [
           {
             heading: "Technology Stack Selection:",
-            body: "Tekvill strategically chose React Native for its cross-platform capabilities, allowing a unified experience across devices. JavaScript, known for its versatility, was employed for frontend development, while Redux efficiently managed state throughout the application. MySQL was selected as the database management system, ensuring data integrity and scalability.",
+            body: "Tekvill strategically chose React Native for its cross-platform capabilities, allowing a unified experience across devices. JavaScript was employed for frontend development, while Redux efficiently managed state throughout the application. MySQL was selected as the database management system, ensuring data integrity and scalability.",
           },
           {
             heading: "MVP Development and Funding Success:",
-            body: "Tekvill successfully developed the MVP, implementing in-app notifications, calendar integration, Microsoft Teams compatibility, live training modules, white-labelling, concierge onboarding, and dedicated data servers. The robust system demonstrated Legal Ace’s vision effectively, enabling them to secure the funding needed to propel the project forward.",
+            body: "Tekvill successfully developed the MVP, implementing in-app notifications, calendar integration, Microsoft Teams compatibility, live training modules, white-labelling, concierge onboarding, and dedicated data servers. The robust system demonstrated the product vision effectively, enabling the client to secure funding to propel the project forward.",
           },
           {
             heading: "Continuous Collaboration and Iterative Improvement:",
-            body: "Tekvill continued its collaboration with Legal Ace, addressing ongoing glitches, refining user interfaces, and incorporating user feedback for iterative improvements. The partnership focused on enhancing features and maintaining a high standard of performance.",
+            body: "Tekvill continued the collaboration, addressing ongoing issues, refining user interfaces, and incorporating user feedback for iterative improvements. The partnership focused on enhancing features and maintaining a high standard of performance.",
           },
         ],
       },
@@ -210,11 +224,11 @@ export const caseStudies: CaseStudy[] = [
         items: [
           {
             heading: "Funding Secured and Enhanced Operational Efficiency:",
-            body: "The successful MVP played a pivotal role in Legal Ace’s fundraising efforts, showcasing the system’s potential impact on legal practice management. The implemented tools and functionalities significantly enhanced operational efficiency, allowing for better team coordination and individual performance analysis.",
+            body: "The successful MVP played a pivotal role in fundraising efforts, showcasing the system’s potential impact on legal practice management. The implemented tools significantly enhanced operational efficiency, allowing for better team coordination and individual performance analysis.",
           },
           {
             heading: "Sustained Growth and Innovation:",
-            body: "The ongoing collaboration ensured a continuously evolving platform that adapted to the dynamic needs of the legal industry. Legal Ace and Tekvill’s joint efforts resulted in a system that remains at the forefront of legal practice management, incorporating emerging technologies and addressing industry challenges.",
+            body: "The ongoing collaboration ensured a continuously evolving platform that adapted to the dynamic needs of the legal industry — incorporating emerging technologies and addressing industry challenges.",
           },
         ],
       },
@@ -226,15 +240,12 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "mobile-app-developed-by-tekvill",
-    title:
-      "Enhancing Customer Experience through Mobile App Development for Digital Mall",
-    heroTitle:
-      "Enhancing Customer Experience through Mobile App Development for Digital Mall",
-    cardTitle: "Enhancing Customer Experience for Digital Mall",
+    title: "Multi-Brand Mobile Marketplace",
+    heroTitle: "Multi-Brand Mobile Marketplace",
     summary:
-      "Digital Mall partnered with Tekvill to build a mobile marketplace uniting multiple brands into one seamless shopping experience.",
+      "A mobile marketplace uniting multiple brands into one seamless shopping experience.",
     cover: "/case-studies/mobile-app-developed-by-tekvill-cover.png",
-    coverAlt: "Digital Mall mobile app case study",
+    coverAlt: "Multi-brand mobile marketplace case study",
     categories: [
       "design-development",
       "mobile-app-development",
@@ -244,7 +255,12 @@ export const caseStudies: CaseStudy[] = [
     ],
     techStack: ["React", "Android", "IOS", "Java", "MySQL"],
     overview:
-      "Digital Mall, an emerging online shopping mall, aimed to revolutionize the retail experience by consolidating a multitude of popular brands within a single online marketplace. Their objective was to offer customers the convenience of accessing diverse brands and products through a seamless mobile application. To achieve this goal, Digital Mall partnered with Tekvill, a renowned tech solution provider, to develop a comprehensive mobile app that facilitates effortless shopping experiences for users.",
+      "An emerging online shopping platform aimed to consolidate a multitude of popular brands within a single marketplace. The objective was to offer customers the convenience of accessing diverse brands and products through a seamless mobile application. Tekvill developed a comprehensive mobile app that facilitates effortless shopping experiences for users.",
+    highlights: [
+      "Multiple brand inventories in one app",
+      "Behavior tracking for personalized shopping",
+      "Native iOS and Android experience",
+    ],
     sections: [
       {
         title: "Challenges:",
@@ -255,7 +271,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Customer Behavior Tracking:",
-            body: "Digital Mal required a robust system to comprehensively track user behavior, encompassing shopping history, inquiries, cart activities, reviews, and ratings, while ensuring data security and privacy.",
+            body: "The platform required a robust system to comprehensively track user behavior — shopping history, inquiries, cart activities, reviews, and ratings — while ensuring data security and privacy.",
           },
           {
             heading: "Creating a User-Friendly Interface:",
@@ -268,19 +284,19 @@ export const caseStudies: CaseStudy[] = [
         items: [
           {
             heading: "Technology Selection:",
-            body: "Tekvill utilized a tech stack comprising React for frontend development, IOS and Android platforms for mobile app deployment, Java for backend processes, and MySQL for database management. This strategic selection ensured scalability, compatibility, and optimal performance.",
+            body: "Tekvill utilized a tech stack comprising React for frontend development, iOS and Android for mobile app deployment, Java for backend processes, and MySQL for database management. This selection ensured scalability, compatibility, and optimal performance.",
           },
           {
             heading: "Seamless Brand Integration:",
-            body: "Tekvill devised a robust API integration strategy to connect diverse brand ecosystems. Through meticulous API development and integration, they unified disparate inventory systems, ensuring a unified shopping experience.",
+            body: "Tekvill devised a robust API integration strategy to connect diverse brand ecosystems. Through meticulous API development and integration, disparate inventory systems were unified into one shopping experience.",
           },
           {
             heading: "Comprehensive Customer Behavior Tracking:",
-            body: "Leveraging MySQL, Tekvill designed a sophisticated tracking system that captured and analysed customer activities comprehensively. This system tracked browsing history, cart behaviour, purchase patterns, inquiries, reviews, and ratings. Additionally, robust encryption methods were implemented to safeguard sensitive user data.",
+            body: "Leveraging MySQL, Tekvill designed a sophisticated tracking system that captured browsing history, cart behaviour, purchase patterns, inquiries, reviews, and ratings. Robust encryption methods were implemented to safeguard sensitive user data.",
           },
           {
             heading: "User-Centric Interface:",
-            body: "Tekvill focused on user experience (UX) design, employing React to craft an intuitive interface. Iterative user testing ensured a seamless and engaging shopping journey, accommodating various user preferences and simplifying the overall shopping experience.",
+            body: "Tekvill focused on UX design, employing React to craft an intuitive interface. Iterative user testing ensured a seamless shopping journey across varied preferences.",
           },
         ],
       },
@@ -288,7 +304,7 @@ export const caseStudies: CaseStudy[] = [
         title: "Outcome:",
         items: [
           {
-            body: "The collaboration between Digital Mall and Tekvill resulted in the successful development and launch of a feature-rich mobile app. The app empowered users with a convenient and personalized shopping experience, enabled by: Seamless navigation across diverse brand offerings. Personalized recommendations based on user behavior analysis. Secure and efficient transaction processes. Detailed insights into user preferences for targeted marketing strategies.",
+            body: "The engagement resulted in a feature-rich mobile app with seamless navigation across brand offerings, personalized recommendations based on behavior analysis, secure transactions, and detailed insights into user preferences for targeted marketing.",
           },
         ],
       },
@@ -296,25 +312,25 @@ export const caseStudies: CaseStudy[] = [
         title: "Conclusion:",
         items: [
           {
-            body: "Through Tekvill’s expertise in leveraging cutting-edge technologies and strategic development methodologies, Digital Mall realized its vision of providing a unified and user-centric online shopping experience. The collaboration culminated in a robust mobile application that not only met but exceeded the client’s expectations, establishing Digital Mall as a prominent player in the online retail landscape.",
+            body: "Through Tekvill’s expertise in modern mobile technologies and strategic development methodologies, the client realized a unified, user-centric online shopping experience — a robust application that met and exceeded expectations in the online retail landscape.",
           },
         ],
       },
     ],
     metric: "App",
-    metricLabel: "digital mall",
+    metricLabel: "marketplace",
     sector: "Mobile App Development",
     tags: ["Mobile App Development", "Product Design", "Software Development"],
   },
   {
     slug: "smart-meal-plan-food-order-management-system",
-    title: "Smart Meal Plan – Food Order Management System",
-    heroTitle: "Smart Meal Plan – Food Order Management System",
+    title: "Food Order & Kitchen Operations Platform",
+    heroTitle: "Food Order & Kitchen Operations Platform",
     summary:
-      "Tekvill built custom WooCommerce plugins for Smart Meal Plan — cooking reports, label printing, and a chef dashboard.",
+      "Custom WooCommerce plugins for cooking reports, label printing, and a chef dashboard in a meal prep operation.",
     cover:
       "/case-studies/smart-meal-plan-food-order-management-system-cover.webp",
-    coverAlt: "Smart Meal Plan food order management case study",
+    coverAlt: "Food order and kitchen operations case study",
     categories: [
       "design-development",
       "mvp-development",
@@ -337,22 +353,27 @@ export const caseStudies: CaseStudy[] = [
       "Cloud Deployment",
     ],
     overview:
-      "Smart Meal Plan is a meal preparation and delivery service that offers nutritious and customized meal plans to its customers. Tekvill collaborated with Smart Meal Plan to develop custom WooCommerce plugins, including cooking report generation, label printing, and a chef dashboard.",
+      "A meal preparation and delivery service offering nutritious, customized meal plans needed tighter kitchen operations. Tekvill developed custom WooCommerce plugins for cooking report generation, label printing, and a chef dashboard.",
+    highlights: [
+      "Automated cooking reports for kitchen prep",
+      "Customer-specific label printing at scale",
+      "Chef dashboard for recipes and schedules",
+    ],
     sections: [
       {
         title: "Challenges:",
         items: [
           {
             heading: "Cooking Reports:",
-            body: "Smart Meal Plan required a streamlined process for generating cooking reports to facilitate efficient meal preparation. This involved consolidating recipe details, ingredient quantities, and cooking instructions into a printable format.",
+            body: "The client required a streamlined process for generating cooking reports to facilitate efficient meal preparation — consolidating recipe details, ingredient quantities, and cooking instructions into a printable format.",
           },
           {
             heading: "Label Printing:",
-            body: "The platform needed an automated label printing solution that would allow for the quick and accurate labeling of meal containers with customer-specific details such as names, dietary restrictions, and delivery dates.",
+            body: "The platform needed an automated label printing solution for quick, accurate labeling of meal containers with customer-specific details such as names, dietary restrictions, and delivery dates.",
           },
           {
             heading: "Chef Dashboard:",
-            body: "Smart Meal Plan wanted a centralized chef dashboard that would provide chefs with an intuitive interface to manage recipes, track meal plan orders, and view cooking schedules.",
+            body: "The operation needed a centralized chef dashboard with an intuitive interface to manage recipes, track meal plan orders, and view cooking schedules.",
           },
         ],
       },
@@ -361,15 +382,15 @@ export const caseStudies: CaseStudy[] = [
         items: [
           {
             heading: "Cooking Report Generation:",
-            body: "Tekvill created a plugin that integrated seamlessly with Smart Meal Plan Woo Commerce platform, enabling the automatic generation of cooking reports. The plugin extracted recipe details and transformed them into printable formats, saving chefs valuable time and streamlining the meal preparation process.",
+            body: "Tekvill created a plugin that integrated seamlessly with the WooCommerce platform, enabling automatic generation of cooking reports. The plugin extracted recipe details and transformed them into printable formats, saving chefs valuable time.",
           },
           {
             heading: "Label Printing Automation:",
-            body: "Tekvill developed a label printing plugin that allowed Smart Meal Plan to automate the printing of customer-specific labels for meal containers. This plugin extracted order details from Woo Commerce, generated printable labels with accurate information, and optimized the labeling process.",
+            body: "Tekvill developed a label printing plugin that automated customer-specific labels for meal containers — extracting order details from WooCommerce and optimizing the labeling process.",
           },
           {
             heading: "Chef Dashboard:",
-            body: "Tekvill designed and implemented a chef dashboard using PHP within WooCommerce, providing chefs with a user-friendly interface to manage recipes, track orders, and view cooking schedules. The dashboard improved collaboration and coordination among chefs, leading to increased efficiency and productivity.",
+            body: "Tekvill designed and implemented a chef dashboard using PHP within WooCommerce, providing a user-friendly interface to manage recipes, track orders, and view cooking schedules.",
           },
         ],
       },
@@ -378,19 +399,19 @@ export const caseStudies: CaseStudy[] = [
         items: [
           {
             heading: "Streamlined Meal Preparation:",
-            body: "The cooking report generation plugin significantly reduced the time and effort required to prepare meals by automating the consolidation and formatting of recipe details. Chefs could access printable reports quickly, leading to more efficient meal preparation.",
+            body: "The cooking report generation plugin significantly reduced the time and effort required to prepare meals by automating consolidation and formatting of recipe details.",
           },
           {
             heading: "Enhanced Labeling Efficiency:",
-            body: "The label printing automation plugin eliminated manual data entry and ensured accurate labelling of meal containers. This improved order accuracy, reduced errors, and saved time in the labelling process.",
+            body: "Label printing automation eliminated manual data entry and ensured accurate labelling — improving order accuracy and saving time.",
           },
           {
             heading: "Improved Chef Productivity:",
-            body: "The chef dashboard provided a centralized platform for chefs to manage recipes, track orders, and view cooking schedules. This streamlined communication and coordination among the culinary team, resulting in improved productivity and better collaboration.",
+            body: "The chef dashboard provided a centralized platform for recipes, orders, and schedules, resulting in better collaboration and productivity.",
           },
           {
             heading: "Business Growth:",
-            body: "Tekvill’s custom Woo Commerce plugins improved operational efficiency, resulting in faster meal preparation, accurate labelling, and enhanced chef productivity. This contributed to increased customer satisfaction, repeat business, and ultimately, business growth for Smart Meal Plan.",
+            body: "Improved operational efficiency contributed to increased customer satisfaction, repeat business, and growth for the meal service.",
           },
         ],
       },
@@ -402,12 +423,12 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "meta-web3-and-mern-app",
-    title: "Building Meta NFT Platform – A Decentralized NFT Marketplace",
-    heroTitle: "Building Meta NFT Platform – A Decentralized NFT Marketplace",
+    title: "Decentralized NFT Marketplace",
+    heroTitle: "Decentralized NFT Marketplace",
     summary:
-      "Tekvill built a decentralized NFT marketplace for the Metaverse — multi-chain trading across Ethereum, BSC, and Polygon.",
+      "A multi-chain NFT marketplace for buying, selling, and trading across Ethereum, BSC, and Polygon.",
     cover: "/case-studies/meta-web3-and-mern-app-cover.webp",
-    coverAlt: "Meta NFT Platform Web3 marketplace case study",
+    coverAlt: "Decentralized NFT marketplace case study",
     categories: [
       "design-development",
       "mobile-app-development",
@@ -429,18 +450,23 @@ export const caseStudies: CaseStudy[] = [
       "Cloud Deployment",
     ],
     overview:
-      "Meta NFT Platform is a leading decentralized NFT marketplace designed for the Metaverse. It offers its users a platform to buy, sell, and trade non-fungible tokens (NFTs) across different blockchain networks including but not limited to Ethereum, Binance Smart Chain, and Polygon. Tekvill partnered with Meta NFT Platform to develop their website using Next.js, a popular React framework for server-side rendering.",
+      "The client needed a decentralized NFT marketplace for the Metaverse — a platform to buy, sell, and trade non-fungible tokens across Ethereum, Binance Smart Chain, and Polygon. Tekvill built the product with Next.js for server-side rendering and a production-ready Web3 experience.",
+    highlights: [
+      "Multi-chain trading across 3 networks",
+      "Smart contract audits for safer transactions",
+      "High-traffic marketplace built to scale",
+    ],
     sections: [
       {
         title: "Challenges:",
         items: [
           {
             heading: "Multi-Blockchain Integration:",
-            body: "Integrating the marketplace with multiple blockchain networks posed a significant challenge. Each blockchain has its own infrastructure and APIs, requiring meticulous implementation to ensure seamless connectivity and interoperability.",
+            body: "Integrating the marketplace with multiple blockchain networks posed a significant challenge. Each blockchain has its own infrastructure and APIs, requiring meticulous implementation for seamless connectivity.",
           },
           {
             heading: "Scalability and Performance:",
-            body: "As a prominent NFT marketplace, Meta NFT Platform needed to handle a high volume of transactions and user interactions without compromising performance. Scaling considerations were crucial to guarantee a smooth and responsive user experience, even during peak usage periods.",
+            body: "As a high-traffic NFT marketplace, the product needed to handle a large volume of transactions and user interactions without compromising performance — even during peak usage.",
           },
           {
             heading: "Security and Smart Contract Auditing:",
@@ -448,7 +474,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "User-Friendly Interface:",
-            body: "Meta NFT Platform aimed to create a user-friendly interface appealing to both experienced NFT enthusiasts and newcomers. The challenge was to design an intuitive and engaging interface that simplified the process of buying, selling, and trading NFTs.",
+            body: "The challenge was to design an intuitive interface that simplified buying, selling, and trading NFTs for both experienced enthusiasts and newcomers.",
           },
         ],
       },
@@ -457,19 +483,19 @@ export const caseStudies: CaseStudy[] = [
         items: [
           {
             heading: "Blockchain Integration:",
-            body: "Tekvill leveraged their blockchain expertise to seamlessly integrate Meta NFT Platform with Ethereum, Binance Smart Chain, and Polygon. This allowed users to explore and transact with NFTs across different networks from a single platform.",
+            body: "Tekvill leveraged blockchain expertise to integrate Ethereum, Binance Smart Chain, and Polygon — allowing users to explore and transact with NFTs across networks from a single platform.",
           },
           {
             heading: "Scalability and Performance Optimization:",
-            body: "Tekvill implemented various performance optimization techniques, including caching mechanisms, load balancing, and efficient database management. These measures ensured the marketplace could handle high user traffic and deliver fast response times.",
+            body: "Caching, load balancing, and efficient database management ensured the marketplace could handle high traffic and deliver fast response times.",
           },
           {
             heading: "Security Measures:",
-            body: "Tekvill conducted comprehensive smart contract audits and implemented robust security protocols to safeguard user funds and data. Thorough testing, code reviews, and adherence to industry-standard security practices were prioritized.",
+            body: "Comprehensive smart contract audits and robust security protocols safeguarded user funds and data, with thorough testing and industry-standard practices.",
           },
           {
             heading: "User-Centric Design:",
-            body: "Tekvill focused on creating a user-centric design that emphasized simplicity, ease of use, and visual appeal. The marketplace interface guided users through the NFT buying and selling process with clear instructions and intuitive navigation.",
+            body: "Tekvill focused on simplicity, ease of use, and visual appeal — guiding users through NFT transactions with clear instructions and intuitive navigation.",
           },
         ],
       },
@@ -478,25 +504,25 @@ export const caseStudies: CaseStudy[] = [
         items: [
           {
             heading: "Seamless Multi-Blockchain Integration:",
-            body: "Meta NFT Platform provided users with a unified platform to explore and trade NFTs across different blockchain networks, enhancing accessibility and market reach.",
+            body: "Users gained a unified platform to explore and trade NFTs across blockchain networks, enhancing accessibility and market reach.",
           },
           {
             heading: "High Performance and Scalability:",
-            body: "The marketplace demonstrated robust performance, efficiently handling a significant volume of transactions and user interactions while maintaining optimal speed and responsiveness.",
+            body: "The marketplace efficiently handled significant transaction volume while maintaining speed and responsiveness.",
           },
           {
             heading: "Enhanced Security and Trust:",
-            body: "Tekvill’s security measures and smart contract auditing instilled confidence in users, fostering a secure and trusted environment for NFT transactions.",
+            body: "Security measures and smart contract auditing fostered a trusted environment for NFT transactions.",
           },
           {
             heading: "Engaging User Experience:",
-            body: "The user-centric design and intuitive interface of Meta NFT Platform facilitated a smooth and enjoyable experience for users, attracting both seasoned NFT enthusiasts and newcomers to the space.",
+            body: "The user-centric design attracted both seasoned NFT enthusiasts and newcomers to the space.",
           },
         ],
       },
     ],
     closing:
-      "Through the collaboration between Tekvill and Meta NFT Platform, a decentralized NFT marketplace was successfully built, offering a seamless and secure platform for users to engage in NFT transactions across multiple blockchain networks.",
+      "Tekvill delivered a decentralized NFT marketplace offering a seamless, secure platform for multi-chain NFT transactions.",
     metric: "Web3",
     metricLabel: "NFT marketplace",
     sector: "Web App Development",
@@ -504,14 +530,12 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "fitness-magento-site",
-    title:
-      "Fitness Marketplace – Transforming Fitness Equipment Sales through Scalable Web Solutions",
-    heroTitle:
-      "Fitness Marketplace – Transforming Fitness Equipment Sales through Scalable Web Solutions",
+    title: "Scalable Fitness E-commerce Platform",
+    heroTitle: "Scalable Fitness E-commerce Platform",
     summary:
-      "A US fitness equipment brand needed a scalable Magento store to handle growth, traffic spikes, and a expanding catalog.",
+      "A US fitness equipment brand needed a Magento store that could handle growth, traffic spikes, and an expanding catalog.",
     cover: "/case-studies/fitness-magento-site-cover.webp",
-    coverAlt: "Fitness Marketplace Magento case study",
+    coverAlt: "Fitness e-commerce Magento case study",
     categories: [
       "design-development",
       "product-design",
@@ -532,13 +556,18 @@ export const caseStudies: CaseStudy[] = [
       "Require JS",
     ],
     overview:
-      "Fitness Marketplace, a prominent US-based fitness equipment manufacturer and distributor, prides itself on innovation in designing top-tier fitness gear. With an expanding operation spanning multiple states, Fitness Marketplace sought to revamp its online presence. The company aimed to develop a robust web store capable of accommodating their growing product range and effectively handling surges in web traffic.",
+      "A US-based fitness equipment manufacturer and distributor sought to revamp its online presence. The company needed a robust web store capable of accommodating a growing product range and effectively handling surges in web traffic.",
+    highlights: [
+      "Magento 1 to Magento 2 migration",
+      "Faster catalog search with Elasticsearch",
+      "Storefront built for peak traffic spikes",
+    ],
     sections: [
       {
         title: "Challenges Faced:",
         items: [
           {
-            body: "As Fitness Marketplace experienced exponential growth, several challenges emerged:",
+            body: "As the business experienced exponential growth, several challenges emerged:",
           },
           {
             heading: "Scalability:",
@@ -546,7 +575,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Diverse Product Range:",
-            body: "Fitness Marketplace needed a platform capable of showcasing their diverse inventory effectively, ensuring a seamless and user-friendly browsing and purchasing experience.",
+            body: "The brand needed a platform capable of showcasing a diverse inventory effectively, ensuring a seamless browsing and purchasing experience.",
           },
           {
             heading: "Performance Issues:",
@@ -558,23 +587,23 @@ export const caseStudies: CaseStudy[] = [
         title: "Solutions Provided:",
         items: [
           {
-            body: "To address Fitness Marketplace’s challenges and elevate their online platform, Tekvill employed a comprehensive tech stack and implemented strategic solutions:",
+            body: "Tekvill employed a comprehensive tech stack and implemented strategic solutions:",
           },
           {
             heading: "Magento 2 Implementation:",
-            body: "Leveraging the robust capabilities of Magento 2, Tekvill established a flexible and scalable e-commerce platform. This allowed for effortless management of the expanding product range while enhancing the overall user experience.",
+            body: "Leveraging Magento 2, Tekvill established a flexible and scalable e-commerce platform — effortless management of the expanding catalog with a stronger user experience.",
           },
           {
             heading: "Elasticsearch Integration:",
-            body: "By integrating Elasticsearch, Tekvill significantly improved search functionality. This empowered users to efficiently explore Fitness Marketplace’s extensive catalog with enhanced search accuracy and speed.",
+            body: "Elasticsearch significantly improved search accuracy and speed across the extensive product catalog.",
           },
           {
             heading: "Utilization of PHP, CSS, and JavaScript:",
-            body: "Tekvill utilized these programming languages to customize and optimize various aspects of the web store, ensuring responsiveness, speed, and a visually appealing interface.",
+            body: "These languages customized and optimized responsiveness, speed, and visual polish across the storefront.",
           },
           {
             heading: "Knockout.js and Require.js Integration:",
-            body: "Leveraging the power of Knockout.js and Require.js, Tekvill enhanced the frontend functionality, enabling dynamic and responsive elements that elevated the user interface.",
+            body: "Frontend enhancements enabled dynamic, responsive elements that elevated the interface.",
           },
         ],
       },
@@ -582,19 +611,19 @@ export const caseStudies: CaseStudy[] = [
         title: "Outcome:",
         items: [
           {
-            body: "The collaboration between Fitness Marketplace and Tekvill resulted in a transformational web store:",
+            body: "The collaboration resulted in a transformational web store:",
           },
           {
             heading: "Enhanced Scalability:",
-            body: "The new infrastructure accommodated Fitness Marketplace’s growing product line and effectively managed fluctuations in web traffic, ensuring a seamless browsing and purchasing experience for users.",
+            body: "The new infrastructure accommodated growth and traffic fluctuations, ensuring a seamless browsing and purchasing experience.",
           },
           {
             heading: "Improved User Experience:",
-            body: "By optimizing performance and implementing responsive design elements, the web store provided a smoother, more engaging experience for customers, enhancing retention and conversion rates.",
+            body: "Optimized performance and responsive design improved retention and conversion rates.",
           },
           {
             heading: "Streamlined Product Discovery:",
-            body: "The integration of Elasticsearch facilitated efficient and accurate product searches, enabling customers to find desired items swiftly amidst the extensive inventory.",
+            body: "Elasticsearch enabled customers to find desired items swiftly amidst the extensive inventory.",
           },
         ],
       },
@@ -602,7 +631,7 @@ export const caseStudies: CaseStudy[] = [
         title: "Conclusion:",
         items: [
           {
-            body: "Tekvill’s strategic implementation of Magento 2, Elasticsearch, and various frontend technologies successfully addressed Fitness Marketplace’s challenges. The collaboration resulted in a highly scalable, functionally responsive web store that not only accommodated the company’s rapid growth but also enhanced the overall user experience, positioning Fitness Marketplace as a leader in the online fitness equipment market.",
+            body: "Tekvill’s Magento 2, Elasticsearch, and frontend work delivered a highly scalable, responsive web store that supported rapid growth and elevated the online shopping experience for fitness equipment buyers.",
           },
         ],
       },
@@ -614,15 +643,13 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "elevating-flourescent-commerce-from-laravel-to-shopify-for-enhanced-e-commerce-capabilities",
-    title:
-      "Flourescent Commerce – Elevating Home Decor E-commerce through Platform Optimization",
-    heroTitle:
-      "Flourescent Commerce – Elevating Home Decor E-commerce through Platform Optimization",
+    title: "Home Decor E-commerce Platform Migration",
+    heroTitle: "Home Decor E-commerce Platform Migration",
     summary:
-      "Flourescent Commerce moved from Laravel to Shopify with Tekvill — better UX, scalability, and dedicated e-commerce tools.",
+      "A Laravel storefront moved to Shopify — better UX, scalability, and dedicated e-commerce tooling.",
     cover:
       "/case-studies/elevating-flourescent-commerce-from-laravel-to-shopify-for-enhanced-e-commerce-capabilities-cover.webp",
-    coverAlt: "Flourescent Commerce Shopify migration case study",
+    coverAlt: "Home decor Shopify migration case study",
     categories: [
       "design-development",
       "mvp-development",
@@ -645,7 +672,12 @@ export const caseStudies: CaseStudy[] = [
       "Payment Methods Integration",
     ],
     overview:
-      "Flourescent Commerce, a prominent home decor brand, initially operated on an E-commerce platform built with Laravel. However, they encountered hurdles in adapting to new e-commerce features and optimizing their platform’s capabilities. Seeking a more user-friendly and efficient solution, Flourescent Commerce partnered with Tekvill to upgrade and optimize their E-commerce platform.",
+      "A home decor brand initially operated on an e-commerce platform built with Laravel. They encountered hurdles adapting to new e-commerce features and optimizing platform capabilities. Seeking a more efficient solution, they partnered with Tekvill to upgrade and optimize the storefront.",
+    highlights: [
+      "Full UI/UX redesign before migration",
+      "Laravel storefront moved to Shopify",
+      "Payments and support tools integrated",
+    ],
     sections: [
       {
         title: "Challenges Faced:",
@@ -655,15 +687,15 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             heading: "Limited E-commerce Features:",
-            body: "The existing Laravel-based platform posed constraints in integrating new e-commerce features, hindering the brand’s ability to adapt to evolving market demands.",
+            body: "The existing Laravel-based platform constrained integration of new e-commerce features, hindering adaptation to evolving market demands.",
           },
           {
             heading: "User Experience Enhancement:",
-            body: "Flourescent Commerce required a complete overhaul of the platform’s user interface and experience to improve customer engagement and conversion rates.",
+            body: "The brand required a complete overhaul of the platform’s UI and UX to improve engagement and conversion rates.",
           },
           {
             heading: "Scalability and Efficiency:",
-            body: "With the business expanding, the need for a scalable and efficient infrastructure to support growing demands became imperative.",
+            body: "With the business expanding, a scalable infrastructure to support growing demand became imperative.",
           },
         ],
       },
@@ -671,23 +703,23 @@ export const caseStudies: CaseStudy[] = [
         title: "Solutions Provided by Tekvill:",
         items: [
           {
-            body: "Tekvill embarked on a transformative journey for Flourescent Commerce, implementing strategic solutions:",
+            body: "Tekvill implemented a transformative set of solutions:",
           },
           {
             heading: "Complete UI/UX Redesign:",
-            body: "Tekvill initiated a comprehensive redesign of the platform’s user interface and experience. This overhaul aimed to enhance user engagement, simplify navigation, and improve the overall aesthetics of the site.",
+            body: "A comprehensive redesign enhanced engagement, simplified navigation, and improved overall aesthetics.",
           },
           {
             heading: "Backend Functionality Enhancement:",
-            body: "Tekvill bolstered the backend functionality, ensuring a robust and scalable infrastructure capable of handling the growing demands of an E-commerce business. This involved optimizing performance and streamlining processes for efficient management.",
+            body: "Backend work ensured a robust, scalable infrastructure capable of handling growing e-commerce demand — optimizing performance and streamlining operations.",
           },
           {
             heading: "Recommendation and Migration to Shopify:",
-            body: "As the project progressed, Tekvill identified the potential advantages of migrating to Shopify, a specialized E-commerce platform. Tekvill recommended this transition to leverage Shopify’s dedicated E-commerce capabilities and extensive ecosystem.",
+            body: "Tekvill recommended migrating to Shopify to leverage dedicated e-commerce capabilities and an extensive ecosystem.",
           },
           {
             heading: "Implementation:",
-            body: "Tekvill employed a specific tech stack for this project, including: Theme Development and Customization using Shopify’s Liquid language; Seamless Integration of Customer Support Tools for enhanced service; Integration of Multiple Payment Methods for increased flexibility; API Integration to ensure seamless connectivity with third-party systems and services.",
+            body: "Theme development and customization with Liquid; customer support tool integration; multiple payment methods; and API connectivity with third-party systems.",
           },
         ],
       },
@@ -695,19 +727,19 @@ export const caseStudies: CaseStudy[] = [
         title: "Outcome:",
         items: [
           {
-            body: "The collaboration between Flourescent Commerce and Tekvill resulted in a transformational upgrade of their E-commerce platform:",
+            body: "The engagement delivered a transformational upgrade:",
           },
           {
             heading: "Improved User Experience:",
-            body: "The complete UI/UX redesign significantly enhanced user engagement and interaction, leading to improved conversion rates and customer satisfaction.",
+            body: "The UI/UX redesign significantly enhanced engagement and conversion rates.",
           },
           {
             heading: "Scalability and Efficiency:",
-            body: "The transition to Shopify provided Flourescent Commerce with a robust and scalable platform, enabling efficient management of their expanding business operations.",
+            body: "Shopify provided a robust platform for managing expanding operations.",
           },
           {
             heading: "Advanced E-commerce Capabilities:",
-            body: "Leveraging Shopify’s specialized features, Flourescent Commerce gained access to a wide array of tools and integrations, enhancing their E-commerce functionalities and streamlining operations.",
+            body: "Specialized Shopify features and integrations streamlined storefront operations.",
           },
         ],
       },
@@ -715,7 +747,7 @@ export const caseStudies: CaseStudy[] = [
         title: "Conclusion:",
         items: [
           {
-            body: "Tekvill’s strategic approach, encompassing UI/UX redesign, backend enhancements, and the transition to Shopify, successfully addressed Flourescent Commerce‘s challenges. The optimized E-commerce platform empowered Flourescent Commerce to provide a superior shopping experience for their customers while efficiently managing their growing business demands.",
+            body: "Tekvill’s UI/UX redesign, backend enhancements, and Shopify migration empowered the brand to deliver a superior shopping experience while efficiently managing growth.",
           },
         ],
       },
@@ -727,13 +759,13 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "lux-scalable-ecommerce-company-built-on-woocommerce",
-    title: "Hotel Site – Scalablility",
-    heroTitle: "Hotel Site – Scalablility",
+    title: "Hospitality Booking Website Optimization",
+    heroTitle: "Hospitality Booking Website Optimization",
     summary:
-      "Lux Resort partnered with Tekvill to overhaul site performance and redesign the booking experience for modern travelers.",
+      "Performance overhaul and booking UX redesign for a modern hospitality and travel experience.",
     cover:
       "/case-studies/lux-scalable-ecommerce-company-built-on-woocommerce-cover.webp",
-    coverAlt: "Lux Resort hotel site case study",
+    coverAlt: "Hospitality booking website case study",
     categories: ["web-app-development"],
     techStack: [
       "Woocommerce",
@@ -745,26 +777,31 @@ export const caseStudies: CaseStudy[] = [
       "DevOps",
     ],
     overview:
-      "Lux Resort, a prominent player in the hospitality and travel industry, partnered with Tekvill to address two pressing concerns: enhancing their website’s performance and completely redesigning its user interface. The objective was to provide a superior user experience while browsing and booking accommodations and travel services.",
+      "A hospitality and travel brand partnered with Tekvill to enhance website performance and completely redesign the user interface — delivering a superior experience for browsing and booking accommodations and travel services.",
+    highlights: [
+      "Faster load times with CDN and caching",
+      "Modern booking UX across all devices",
+      "Smarter search with filters and geo-location",
+    ],
     sections: [
       {
         title: "Challenges:",
         items: [
           {
             heading: "Performance Issues:",
-            body: "Lux Resort was grappling with severe performance issues, including slow page loading times, resulting in high bounce rates and diminished conversion rates.",
+            body: "Severe performance issues, including slow page loading times, resulted in high bounce rates and diminished conversion rates.",
           },
           {
             heading: "Outdated User Interface:",
-            body: "The existing user interface had become outdated, failing to align with the evolving preferences and expectations of contemporary travelers.",
+            body: "The existing interface had become outdated, failing to align with the preferences and expectations of contemporary travelers.",
           },
           {
             heading: "Mobile Responsiveness:",
-            body: "Recognizing the increasing prevalence of mobile browsing, Lux Resort needed a responsive design that would seamlessly adapt to diverse devices and screen sizes.",
+            body: "Recognizing the prevalence of mobile browsing, the brand needed a responsive design that adapted seamlessly across devices and screen sizes.",
           },
           {
             heading: "Search Functionality:",
-            body: "The prevailing search functionality was cumbersome, causing users to struggle with finding and booking accommodations efficiently.",
+            body: "Search was cumbersome, causing users to struggle with finding and booking accommodations efficiently.",
           },
         ],
       },
@@ -772,19 +809,19 @@ export const caseStudies: CaseStudy[] = [
         title: "Solution:",
         items: [
           {
-            body: "Tekvill formulated a comprehensive strategy to address the challenges faced by Lux Resort:",
+            body: "Tekvill formulated a comprehensive strategy to address the challenges:",
           },
           {
             heading: "Performance Optimization:",
-            body: "Caching Strategies: Advanced caching techniques were implemented to significantly reduce page loading times. Content Delivery Network (CDN): A global CDN was integrated to expedite content delivery to users worldwide. Server Optimization: The server infrastructure underwent an upgrade to efficiently manage increased traffic and load.",
+            body: "Advanced caching reduced page load times; a global CDN accelerated content delivery; and server infrastructure was upgraded to manage increased traffic and load.",
           },
           {
             heading: "Redesign:",
-            body: "User-Centered Design: In-depth user research was conducted to grasp the preferences and behavior of Lux Resort target audience. The research findings guided the creation of a user-centric interface. Modern Aesthetics: The website’s visual design was completely revamped, incorporating contemporary aesthetics and a harmonious color palette. Mobile Responsiveness: A responsive design was implemented to ensure consistent functionality and aesthetics across all devices, including smartphones and tablets.",
+            body: "User research guided a user-centric interface. Visual design was revamped with contemporary aesthetics. Responsive design ensured consistent functionality across smartphones and tablets.",
           },
           {
             heading: "Search Functionality Enhancement:",
-            body: "Advanced Filters: The search functionality was enhanced with the introduction of advanced filters, empowering users to refine their search results based on criteria like price, location, and ratings. Predictive Search: Predictive search capabilities were implemented to help users discover accommodations more quickly and accurately. Geo-Location Integration: Geo-location data was harnessed to provide users with nearby accommodation options, further streamlining the booking experience.",
+            body: "Advanced filters for price, location, and ratings; predictive search; and geo-location integration for nearby accommodation options streamlined booking.",
           },
         ],
       },
@@ -792,15 +829,103 @@ export const caseStudies: CaseStudy[] = [
         title: "Conclusion:",
         items: [
           {
-            body: "The collaboration between Lux Resort and Tekvill brought about a significant transformation, breathing new life into their online presence. With improved performance, a redesigned interface, and enhanced search functionality, Lux Resort was well-prepared to meet the demands of modern travelers. The positive outcomes underscored the value of a strategic approach to website optimization and design, ultimately leading to heightened user satisfaction and business growth for Lux Resort",
+            body: "Improved performance, a redesigned interface, and enhanced search prepared the brand for modern travelers — heightening satisfaction and supporting business growth.",
           },
         ],
       },
     ],
-    metric: "Lux",
-    metricLabel: "resort site",
+    metric: "UX",
+    metricLabel: "hospitality site",
     sector: "Web App Development",
     tags: ["Web App Development"],
+  },
+  {
+    slug: "event-vendor-marketplace",
+    title: "Unified Event & Vendor Marketplace",
+    heroTitle: "Unified Event & Vendor Marketplace",
+    cardTitle: "Event & Vendor Marketplace",
+    summary:
+      "A multi-sided marketplace that consolidates event discovery, ticketing, vendor sourcing, and planning into one AI-assisted platform.",
+    cover: "/case-studies/event-vendor-marketplace-cover.jpg",
+    coverAlt: "Event and vendor marketplace platform",
+    categories: ["ai-development", "full-stack-development"],
+    techStack: [
+      "Next.js",
+      "Tailwind CSS",
+      "NestJS",
+      "AWS Lambda",
+      "AWS Amplify",
+      "PostgreSQL",
+      "Stripe",
+      "Hugging Face",
+      "Resend",
+    ],
+    overview:
+      "Event planning is typically fragmented across separate tools for ticketing, vendor sourcing, and travel. The client needed a single ecosystem that connected attendees, organizers, vendors, and administrators — with AI woven into real workflows, not bolted on as a chatbot. Tekvill delivered an end-to-end web platform on a modern serverless stack in three months.",
+    highlights: [
+      "End-to-end marketplace shipped in 3 months",
+      "AI inside event creation and vendor onboarding",
+      "Stripe payments with dispute and refund flows",
+    ],
+    sections: [
+      {
+        title: "Challenges Faced",
+        items: [
+          {
+            heading: "Fragmented Event Journey:",
+            body: "Attendees, organizers, and vendors relied on disconnected products for discovery, ticketing, quotes, and travel. Unifying those journeys without creating a bloated product was the core product challenge.",
+          },
+          {
+            heading: "Multi-Sided Marketplace Complexity:",
+            body: "Three distinct role-based experiences had to share one infrastructure — attendees discovering and buying tickets, organizers creating events and sourcing vendors, and vendors bidding and managing services — plus an admin layer for moderation and disputes.",
+          },
+          {
+            heading: "AI That Earns Its Place:",
+            body: "The platform needed AI inside practical workflows such as event creation and vendor profile onboarding, not a generic assistant layered on top of an unfinished product.",
+          },
+        ],
+      },
+      {
+        title: "Solution Provided",
+        items: [
+          {
+            heading: "Role-Based Platform Ecosystem:",
+            body: "Tekvill designed four connected experiences: attendees browse, explore, and purchase tickets via Stripe with OAuth login; organizers create events (manually or AI-assisted), sell tickets, request quotes, compare bids, and manage accepted services; vendors complete AI-powered onboarding, publish profiles, receive postal-code quote requests, and manage bids; administrators monitor activity, moderate users and events, resolve disputes, and process refunds.",
+          },
+          {
+            heading: "Serverless Full-Stack Architecture:",
+            body: "The product was built as a modern AWS-hosted ecosystem — Next.js and Tailwind on the frontend with Amplify, NestJS with Lambda on the backend, PostgreSQL on RDS, Stripe for payments, Ticketmaster and Eventbrite for event data, flight and hotel APIs for travel, Hugging Face for AI services, and Resend, Brevo, and Mailchimp for communications.",
+          },
+          {
+            heading: "Engineering Depth Where It Matters:",
+            body: "Explicit state machines governed vendor discovery, requests, bids, and negotiations. Structured work-order logic, payment windows, and refund flows kept disputes and payouts reliable across the marketplace.",
+          },
+        ],
+      },
+      {
+        title: "Results and Impact",
+        items: [
+          {
+            heading: "End-to-End Delivery in 3 Months:",
+            body: "From architecture through AWS deployment, Tekvill replaced a fragmented toolset with one cohesive multi-sided marketplace.",
+          },
+          {
+            heading: "AI Inside Production Workflows:",
+            body: "AI-assisted event creation and vendor onboarding turned raw inputs into structured marketplace profiles and faster organizer planning — without relying on a standalone chatbot.",
+          },
+          {
+            heading: "Unified Operations:",
+            body: "Ticketing, bidding, payments, moderation, and refunds now run from a single platform, giving organizers and vendors a clearer path from discovery to delivery.",
+          },
+        ],
+      },
+    ],
+    closing:
+      "This engagement shows how Tekvill combines full-stack product delivery with practical AI to ship a production marketplace — confidential client details omitted under NDA.",
+    metric: "3 mo",
+    metricLabel: "to launch",
+    sector: "AI Development",
+    tags: ["AI Development", "Full Stack Development"],
   },
 ];
 

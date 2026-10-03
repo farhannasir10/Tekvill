@@ -109,10 +109,28 @@ export default async function CaseStudyPage({ params }: PageProps) {
       <section className="bg-[#F6F6F6] py-[clamp(3.5rem,8vh,5.5rem)]">
         <div className="mx-auto w-[min(800px,calc(100%-2.5rem))] space-y-10">
           {study.overview ? (
-            <p className="text-[1.08rem] leading-relaxed text-ink-soft">
-              {study.overview}
-            </p>
+            <div>
+              <h2 className="font-display text-[clamp(1.4rem,2.5vw,1.85rem)] font-semibold tracking-[-0.02em] text-ink">
+                Overview
+              </h2>
+              <p className="mt-4 text-[1.08rem] leading-relaxed text-ink-soft">
+                {study.overview}
+              </p>
+            </div>
           ) : null}
+
+          <div className="grid gap-3 sm:grid-cols-3">
+            {study.highlights.map((stat) => (
+              <div
+                key={stat}
+                className="flex min-h-[5.5rem] items-center justify-center rounded-xl border border-[#9ec5f5] bg-white px-4 py-5 text-center shadow-[0_4px_16px_rgba(15,18,24,0.03)]"
+              >
+                <p className="font-display text-[0.95rem] font-semibold leading-snug tracking-[-0.01em] text-ink sm:text-[1rem]">
+                  {stat}
+                </p>
+              </div>
+            ))}
+          </div>
 
           {study.sections.map((section) => (
             <div
