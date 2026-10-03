@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { caseStudies } from "@/data/case-studies";
+import { getHomepageCaseStudies } from "@/data/case-studies";
 
 export const metadata: Metadata = {
   title: "About Us — Tekvill",
@@ -173,7 +173,7 @@ function StandardIcon({ name }: { name: string }) {
 }
 
 export default function AboutPage() {
-  const featured = caseStudies.slice(0, 3);
+  const featured = getHomepageCaseStudies();
 
   return (
     <main className="bg-[#F6F6F6]">

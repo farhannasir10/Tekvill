@@ -60,7 +60,285 @@ export type CaseStudy = {
   tags: string[];
 };
 
+export const homepageCaseStudySlugs = [
+  "autonomous-support-agent",
+  "procurement-supply-chain-agent",
+  "autonomous-business-intelligence-agent",
+] as const;
+
 export const caseStudies: CaseStudy[] = [
+  {
+    slug: "autonomous-support-agent",
+    title: "Autonomous Customer Support Agent",
+    heroTitle: "Autonomous Customer Support Agent",
+    summary:
+      "An agentic support system that categorizes tickets, runs diagnostics, and drafts resolution protocols for one-click human approval — including billing lookups and refund workflows.",
+    cover: "/case-studies/autonomous-support-agent-cover.jpg",
+    coverAlt: "Autonomous customer support AI agent",
+    categories: [
+      "ai-development",
+      "full-stack-development",
+      "product-development",
+      "software-development",
+    ],
+    techStack: [
+      "LangChain",
+      "OpenAI",
+      "Python",
+      "Next.js",
+      "PostgreSQL",
+      "Redis",
+      "Stripe API",
+      "Webhook Orchestration",
+    ],
+    overview:
+      "Support teams were buried in repetitive tickets — billing questions, refunds, cancellations, and status checks. Tekvill built an autonomous support agent that connects to internal APIs, handles the heavy lifting, and keeps humans in control for sensitive actions. The agent categorizes tickets, runs diagnostic checks, fetches account context, and drafts a resolution protocol for agents to approve with one click.",
+    highlights: [
+      "Two-thirds of tickets handled by the agent",
+      "Refund workflows with one-click approval",
+      "Average first response cut from hours to seconds",
+    ],
+    sections: [
+      {
+        title: "Challenges Faced",
+        items: [
+          {
+            heading: "Repetitive High-Volume Tickets:",
+            body: "A large share of support volume was predictable — billing lookups, subscription changes, and refund requests — yet still required manual agent time and context switching across tools.",
+          },
+          {
+            heading: "Risk Around Autonomous Actions:",
+            body: "Fully automatic refunds and cancellations were sensitive. The client needed AI that could act through APIs without removing human oversight on money-moving decisions.",
+          },
+          {
+            heading: "Fragmented Systems:",
+            body: "Customer data, billing, and ticket history lived in separate systems. Agents spent more time gathering context than resolving the issue.",
+          },
+        ],
+      },
+      {
+        title: "Solution Provided",
+        items: [
+          {
+            heading: "Agentic Ticket Pipeline:",
+            body: "Tekvill designed an agent that classifies inbound tickets, pulls billing and account details via secure tool calls, runs diagnostic checks, and proposes a structured resolution path — not a freeform chatbot reply.",
+          },
+          {
+            heading: "Human-in-the-Loop Controls:",
+            body: "For refunds, cancellations, and high-risk actions, the agent drafts the protocol and required API payload. Human agents approve with one click before anything executes.",
+          },
+          {
+            heading: "API Tool-Calling Architecture:",
+            body: "Using LLM orchestration with guarded tool access, the agent interacts with Stripe, CRM, and internal support APIs under strict permissions, audit logging, and fallbacks when confidence is low.",
+          },
+        ],
+      },
+      {
+        title: "Results and Impact",
+        items: [
+          {
+            heading: "Scaled Support Without Scaling Headcount:",
+            body: "The agent absorbed the majority of repetitive conversations, freeing human specialists for complex, high-empathy cases.",
+          },
+          {
+            heading: "Faster, Safer Resolutions:",
+            body: "Customers got near-instant first responses, while refunds and cancellations stayed behind an approval gate — reducing risk without slowing the workflow.",
+          },
+          {
+            heading: "Operational Clarity:",
+            body: "Every agent action was logged with ticket context and tool calls, giving operations a clear audit trail across automated and human-assisted resolutions.",
+          },
+        ],
+      },
+    ],
+    closing:
+      "This engagement shows how Tekvill builds agentic AI that pushes real buttons through APIs — while empowering support teams instead of replacing them.",
+    metric: "2/3",
+    metricLabel: "tickets automated",
+    sector: "AI Development",
+    tags: ["Agentic AI", "Workflow Automation", "API Integration"],
+  },
+  {
+    slug: "procurement-supply-chain-agent",
+    title: "Procurement & Supply Chain Agent",
+    heroTitle: "Procurement & Supply Chain Agent",
+    summary:
+      "When stock drops, an agent drafts vendor RFQs, predicts optimal pricing, and surfaces ready-to-send purchase orders for procurement managers to approve.",
+    cover: "/case-studies/procurement-supply-chain-agent-cover.jpg",
+    coverAlt: "Procurement and supply chain AI agent",
+    categories: [
+      "ai-development",
+      "full-stack-development",
+      "product-development",
+      "software-development",
+    ],
+    techStack: [
+      "LangChain",
+      "Python",
+      "Next.js",
+      "PostgreSQL",
+      "Email Automation",
+      "ERP Integration",
+      "Pricing Models",
+    ],
+    overview:
+      "Procurement teams were stuck in reactive cycles — watching inventory, chasing vendors, rewriting RFQs, and negotiating standard goods by hand. Tekvill delivered a human-in-the-loop procurement agent: when stock drops below threshold, it automatically drafts vendor RFQs, predicts optimal pricing bands, and surfaces a ready-to-send purchase order for the procurement manager to approve.",
+    highlights: [
+      "RFQs drafted automatically on stock drops",
+      "Pricing recommendations before vendor outreach",
+      "Purchase orders ready for one-click approval",
+    ],
+    sections: [
+      {
+        title: "Challenges Faced",
+        items: [
+          {
+            heading: "Reactive Purchasing:",
+            body: "Stockouts and near-stockouts triggered rushed email threads. Buyers spent hours assembling vendor context that should have been system-driven.",
+          },
+          {
+            heading: "Negotiation Overhead on Standard Goods:",
+            body: "Many SKUs were commodities with known price bands, yet every cycle still required manual RFQ writing and back-and-forth that slowed replenishment.",
+          },
+          {
+            heading: "Trust and Control:",
+            body: "Full autonomous negotiation felt too aggressive for the client. Leadership wanted acceleration without removing procurement from final commitment.",
+          },
+        ],
+      },
+      {
+        title: "Solution Provided",
+        items: [
+          {
+            heading: "Inventory-Triggered Agent Workflows:",
+            body: "The agent monitors inventory signals and, on threshold breach, gathers vendor history, lead times, and prior pricing to draft targeted RFQs automatically.",
+          },
+          {
+            heading: "Pricing Intelligence:",
+            body: "Predictive models estimate optimal price ranges from historical purchases and market signals, so managers open a conversation already knowing the target band.",
+          },
+          {
+            heading: "Human-in-the-Loop Purchase Orders:",
+            body: "Instead of placing orders alone, the agent prepares a ready-to-send PO package. Procurement reviews, edits if needed, and approves — keeping authority with the team while removing busywork.",
+          },
+        ],
+      },
+      {
+        title: "Results and Impact",
+        items: [
+          {
+            heading: "Faster Replenishment Cycles:",
+            body: "RFQs that once took days of coordination were drafted in minutes when stock signals fired.",
+          },
+          {
+            heading: "Better Buying Decisions:",
+            body: "Managers entered vendor conversations with recommended pricing and context, improving consistency across buyers.",
+          },
+          {
+            heading: "Enterprise-Ready Autonomy:",
+            body: "The client gained agentic procurement leverage without surrendering final approval — a model that scales across categories and vendors.",
+          },
+        ],
+      },
+    ],
+    closing:
+      "Tekvill’s procurement agent proves advanced agentic AI can run real supply-chain workflows while empowering procurement managers to make the final call.",
+    metric: "HITL",
+    metricLabel: "procurement agent",
+    sector: "AI Development",
+    tags: ["Agentic AI", "Supply Chain", "Workflow Automation"],
+  },
+  {
+    slug: "autonomous-business-intelligence-agent",
+    title: "Autonomous Business Intelligence Agent",
+    heroTitle: "Autonomous Business Intelligence Agent",
+    summary:
+      "A data agent that monitors live market feeds, executes complex SQL, and synthesizes raw results into actionable briefs so leadership decides faster — without waiting on manual reporting pipelines.",
+    cover: "/case-studies/autonomous-business-intelligence-agent-cover.jpg",
+    coverAlt: "Autonomous business intelligence AI agent",
+    categories: [
+      "ai-development",
+      "full-stack-development",
+      "product-development",
+      "software-development",
+    ],
+    techStack: [
+      "LangChain",
+      "LlamaIndex",
+      "Python",
+      "SQL",
+      "PostgreSQL",
+      "Next.js",
+      "Data Pipelines",
+      "LLM Orchestration",
+    ],
+    overview:
+      "Leadership needed faster answers than weekly report cycles could deliver. Tekvill built an autonomous business intelligence agent that continuously monitors live market data, executes complex SQL against governed databases, and instantly synthesizes raw results into actionable briefs — empowering teams to make data-backed decisions without waiting on manual reporting pipelines.",
+    highlights: [
+      "40 hours saved weekly on reporting",
+      "Natural language to governed SQL queries",
+      "Daily strategic briefs for leadership",
+    ],
+    sections: [
+      {
+        title: "Challenges Faced",
+        items: [
+          {
+            heading: "Slow Path From Question to Insight:",
+            body: "Business questions waited in analyst queues. By the time a custom report shipped, the decision window had often moved.",
+          },
+          {
+            heading: "Manual Reporting Pipelines:",
+            body: "Analysts spent too much time writing repetitive SQL, exporting tables, and rewriting the same narrative summaries for leadership.",
+          },
+          {
+            heading: "Trust and Governance:",
+            body: "Giving an LLM free access to production data was unacceptable. The client needed read-only, audited query paths with clear guardrails.",
+          },
+        ],
+      },
+      {
+        title: "Solution Provided",
+        items: [
+          {
+            heading: "Natural Language to SQL Agent:",
+            body: "Tekvill built an agent that converts business questions into validated SQL against approved schemas, with read-only credentials and query review rules before execution.",
+          },
+          {
+            heading: "Live Market + Internal Data Fusion:",
+            body: "The agent pulls from real-time market feeds and internal warehouses, then uses an LLM layer to turn tabular results into readable executive briefs.",
+          },
+          {
+            heading: "Augmentation, Not Replacement:",
+            body: "Human analysts stay in the loop for high-stakes interpretation. The agent removes data entry and report assembly so specialists focus on strategy.",
+          },
+        ],
+      },
+      {
+        title: "Results and Impact",
+        items: [
+          {
+            heading: "Hours Returned to the Team:",
+            body: "Roughly forty hours of weekly reporting busywork moved to the agent — reclaiming analyst capacity for higher-value work.",
+          },
+          {
+            heading: "Speed to Insight:",
+            body: "Questions that once took days became briefs available in seconds, with source queries attached for auditability.",
+          },
+          {
+            heading: "Leadership Confidence:",
+            body: "Executives started mornings with up-to-date intelligence instead of waiting on static slide decks assembled by hand.",
+          },
+        ],
+      },
+    ],
+    closing:
+      "This case study shows Tekvill’s approach to agentic BI — accelerating insight and empowering leadership while keeping data access governed and analysts focused on strategy.",
+    metric: "40 hrs",
+    metricLabel: "saved weekly",
+    sector: "AI Development",
+    tags: ["Agentic AI", "Data Engineering", "Workflow Automation"],
+  },
   {
     slug: "revolutionizing-property-management-with-estatepro",
     title: "AI-Powered Property Management Platform",
@@ -931,6 +1209,12 @@ export const caseStudies: CaseStudy[] = [
 
 export function getCaseStudy(slug: string) {
   return caseStudies.find((item) => item.slug === slug);
+}
+
+export function getHomepageCaseStudies() {
+  return homepageCaseStudySlugs
+    .map((slug) => caseStudies.find((item) => item.slug === slug))
+    .filter((item): item is CaseStudy => Boolean(item));
 }
 
 export function filterCaseStudies(categoryId: WorkCategoryId | "all") {
