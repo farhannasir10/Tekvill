@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import WorkGrid from "@/components/WorkGrid";
 
 export const metadata: Metadata = {
-  title: "Our Work — Tekvill",
+  title: "Work",
   description:
     "Selected Tekvill case studies across AI, mobile, product design, MVP, and web app development.",
 };

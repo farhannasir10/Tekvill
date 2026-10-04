@@ -19,6 +19,12 @@ const quotes = [
   },
 ];
 
+const cardTextStyle = {
+  color: "#ffffff",
+  WebkitTextFillColor: "#ffffff",
+  textShadow: "0 1px 2px rgba(0,0,0,0.22)",
+} as const;
+
 export default function Testimonials() {
   return (
     <section
@@ -45,53 +51,45 @@ export default function Testimonials() {
                   key={item.name}
                   className={`group flex min-h-[20rem] flex-col rounded-2xl p-6 transition duration-400 hover:-translate-y-1 sm:min-h-[21.5rem] sm:p-7 ${
                     featured
-                      ? "border border-[#5aa8ff]/35 bg-[#1a3a6e] shadow-[0_22px_56px_rgba(47,127,232,0.32)] hover:shadow-[0_28px_64px_rgba(47,127,232,0.42)]"
-                      : "border border-white/[0.07] bg-[#0d1017] shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:border-white/15 hover:shadow-[0_24px_56px_rgba(0,0,0,0.28)]"
+                      ? "border border-white/40 bg-[rgb(64,118,229)] shadow-[0_22px_56px_rgba(64,118,229,0.32)] hover:shadow-[0_28px_64px_rgba(64,118,229,0.42)]"
+                      : "border border-white/20 bg-[#0d1017] shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:border-white/35 hover:shadow-[0_24px_56px_rgba(0,0,0,0.28)]"
                   }`}
+                  style={cardTextStyle}
                 >
                   <span
-                    className={`mb-4 font-serif text-[2.75rem] leading-none select-none ${
-                      featured ? "text-[#9ecbff]" : "text-accent"
-                    }`}
+                    className="mb-4 font-serif text-[2.75rem] font-semibold leading-none select-none"
+                    style={cardTextStyle}
                     aria-hidden="true"
                   >
                     ”
                   </span>
 
                   <p
-                    className={`mb-7 flex-1 font-ui text-[0.95rem] leading-[1.7] ${
-                      featured ? "text-white/90" : "text-lede"
-                    }`}
+                    className="mb-7 flex-1 font-ui text-[0.95rem] font-medium leading-[1.7]"
+                    style={cardTextStyle}
                   >
                     {item.text}
                   </p>
 
-                  <div
-                    className={`mt-auto border-t pt-5 ${
-                      featured ? "border-white/15" : "border-white/[0.08]"
-                    }`}
-                  >
+                  <div className="mt-auto border-t border-white/40 pt-5">
                     <div className="flex items-end justify-between gap-3">
                       <div className="min-w-0">
                         <p
-                          className={`font-display text-[0.95rem] font-semibold tracking-[-0.02em] ${
-                            featured ? "text-white" : "text-warm"
-                          }`}
+                          className="font-display text-[0.95rem] font-semibold tracking-[-0.02em]"
+                          style={cardTextStyle}
                         >
                           {item.name}
                         </p>
                         <p
-                          className={`mt-0.5 font-ui text-[0.78rem] ${
-                            featured ? "text-white/70" : "text-muted"
-                          }`}
+                          className="mt-0.5 font-ui text-[0.78rem] font-medium"
+                          style={cardTextStyle}
                         >
                           {item.role}
                         </p>
                       </div>
                       <span
-                        className={`shrink-0 font-display text-[0.72rem] font-bold tracking-[0.12em] uppercase ${
-                          featured ? "text-white/65" : "text-muted"
-                        }`}
+                        className="shrink-0 font-display text-[0.72rem] font-bold tracking-[0.12em] uppercase"
+                        style={cardTextStyle}
                       >
                         {item.company}
                       </span>

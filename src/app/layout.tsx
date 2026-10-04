@@ -25,15 +25,18 @@ const ui = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Tekvill — Production Studio",
+  title: {
+    default: "Tekvill",
+    template: "Tekvill %s",
+  },
   description:
     "Tekvill plans, designs, and ships digital products, AI systems, and infrastructure for ambitious companies.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon", type: "image/png" },
+      { url: "/icon", type: "image/png", sizes: "32x32" },
     ],
-    apple: [{ url: "/apple-icon", type: "image/png" }],
+    apple: [{ url: "/apple-icon", type: "image/png", sizes: "180x180" }],
   },
 };
 

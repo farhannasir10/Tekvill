@@ -39,14 +39,14 @@ export default function CaseStudies() {
                     className="object-cover object-center transition duration-700 group-hover:scale-[1.04]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0d1017] via-[#0d1017]/55 to-transparent" />
-                  {item.cardStat ? (
-                    <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 rounded-full border border-[#6eb3ff]/35 bg-[#0b1220]/75 py-1 pr-2.5 pl-1.5 shadow-[0_6px_20px_rgba(47,127,232,0.35)] backdrop-blur-md">
-                      <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-[#2f7fe8] px-1.5 font-display text-[0.72rem] font-bold leading-none tracking-[-0.02em] text-white">
-                        {item.cardStat.value}
-                      </span>
-                      <span className="font-ui text-[0.58rem] font-semibold tracking-[0.06em] text-white/90 uppercase">
-                        {item.cardStat.label}
-                      </span>
+                  {item.metric ? (
+                    <div className="absolute right-5 bottom-4 left-5">
+                      <p className="font-display text-[clamp(1.7rem,2.8vw,2.35rem)] font-semibold tracking-[-0.03em] text-white">
+                        {item.metric}
+                      </p>
+                      <p className="mt-0.5 text-[0.62rem] font-semibold tracking-[0.14em] text-white uppercase">
+                        {item.metricLabel}
+                      </p>
                     </div>
                   ) : null}
                 </div>

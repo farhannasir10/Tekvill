@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { getHomepageCaseStudies } from "@/data/case-studies";
 
 export const metadata: Metadata = {
-  title: "About Us — Tekvill",
+  title: "About Us",
   description:
     "Tekvill is a production studio for AI, product, and infrastructure — built for teams that need what still works after launch.",
 };

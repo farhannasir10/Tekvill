@@ -6,7 +6,7 @@ import ServiceIcon from "@/components/ServiceIcon";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
-  title: "Services — Tekvill",
+  title: "Services",
   description:
     "AI, full stack, mobile, product design, staff augmentation, cloud, product strategy, QA, and data engineering from Tekvill.",
 };

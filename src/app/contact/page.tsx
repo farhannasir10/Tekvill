@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact — Tekvill",
+  title: "Contact",
   description:
     "Start a conversation with Tekvill. We reply within one business day.",
 };

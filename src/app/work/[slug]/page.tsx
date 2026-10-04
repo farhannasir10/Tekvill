@@ -19,9 +19,9 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const study = getCaseStudy(slug);
-  if (!study) return { title: "Case study — Tekvill" };
+  if (!study) return { title: { absolute: "Case study" } };
   return {
-    title: `${study.title} — Tekvill`,
+    title: { absolute: study.title },
     description: study.summary,
   };
 }

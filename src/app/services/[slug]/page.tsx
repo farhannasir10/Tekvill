@@ -22,9 +22,9 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const service = getService(slug);
-  if (!service) return { title: "Service — Tekvill" };
+  if (!service) return { title: { absolute: "Service" } };
   return {
-    title: `${service.title} — Tekvill`,
+    title: { absolute: service.title },
     description: service.body,
   };
 }
