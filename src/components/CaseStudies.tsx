@@ -25,49 +25,59 @@ export default function CaseStudies() {
 
         <div className="grid gap-5 lg:grid-cols-3">
           {getHomepageCaseStudies().map((item) => (
-            <Link
-              key={item.slug}
-              href={`/work/${item.slug}`}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.07] bg-[#0d1017] shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition duration-500 hover:-translate-y-1.5 hover:border-white/15"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <Image
-                  src={item.cover}
-                  alt={item.coverAlt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                  className="object-cover transition duration-700 group-hover:scale-[1.04]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d1017] via-[#0d1017]/55 to-transparent" />
-              </div>
-
-              <div className="flex flex-1 flex-col p-6 pt-5">
-                <p className="mb-2 text-[0.62rem] font-semibold tracking-[0.16em] text-accent uppercase">
-                  {item.sector}
-                </p>
-                <h3 className="mb-3 min-h-[2.7em] font-display text-[1.35rem] font-semibold leading-[1.35] tracking-[-0.02em] text-warm">
-                  {item.cardTitle ?? item.title}
-                </h3>
-                <p className="line-clamp-4 text-[0.9rem] leading-relaxed text-lede">
-                  {item.summary}
-                </p>
-                <div className="mt-auto pt-5">
-                  <div className="mb-5 flex min-h-[3.25rem] flex-wrap content-start gap-2">
-                    {item.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-white/[0.04] px-3 py-1 text-[0.6rem] tracking-[0.1em] text-muted uppercase ring-1 ring-white/[0.06]"
-                      >
-                        {tag}
+              <Link
+                key={item.slug}
+                href={`/work/${item.slug}`}
+                className="group relative isolate flex flex-col overflow-hidden rounded-2xl border border-white/[0.07] bg-[#0d1017] shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition duration-500 hover:-translate-y-1.5 hover:border-white/15"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden rounded-t-2xl">
+                  <Image
+                    src={item.cover}
+                    alt={item.coverAlt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover object-center transition duration-700 group-hover:scale-[1.04]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d1017] via-[#0d1017]/55 to-transparent" />
+                  {item.cardStat ? (
+                    <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 rounded-full border border-[#6eb3ff]/35 bg-[#0b1220]/75 py-1 pr-2.5 pl-1.5 shadow-[0_6px_20px_rgba(47,127,232,0.35)] backdrop-blur-md">
+                      <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-[#2f7fe8] px-1.5 font-display text-[0.72rem] font-bold leading-none tracking-[-0.02em] text-white">
+                        {item.cardStat.value}
                       </span>
-                    ))}
-                  </div>
-                  <span className="text-[0.7rem] font-medium tracking-[0.12em] text-warm/80 uppercase transition group-hover:text-accent">
-                    View case study →
-                  </span>
+                      <span className="font-ui text-[0.58rem] font-semibold tracking-[0.06em] text-white/90 uppercase">
+                        {item.cardStat.label}
+                      </span>
+                    </div>
+                  ) : null}
                 </div>
-              </div>
-            </Link>
+
+                <div className="relative flex flex-1 flex-col p-6 pt-5">
+                  <p className="mb-2 text-[0.62rem] font-semibold tracking-[0.16em] text-accent uppercase">
+                    {item.sector}
+                  </p>
+                  <h3 className="mb-3 min-h-[2.7em] font-display text-[1.35rem] font-semibold leading-[1.35] tracking-[-0.02em] text-warm">
+                    {item.cardTitle ?? item.title}
+                  </h3>
+                  <p className="line-clamp-4 text-[0.9rem] leading-relaxed text-lede">
+                    {item.summary}
+                  </p>
+                  <div className="mt-auto pt-5">
+                    <div className="mb-5 flex min-h-[3.25rem] flex-wrap content-start gap-2">
+                      {item.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-white/[0.04] px-3 py-1 text-[0.6rem] tracking-[0.1em] text-muted uppercase ring-1 ring-white/[0.06]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="text-[0.7rem] font-medium tracking-[0.12em] text-warm/80 uppercase transition group-hover:text-accent">
+                      View case study →
+                    </span>
+                  </div>
+                </div>
+              </Link>
           ))}
         </div>
 

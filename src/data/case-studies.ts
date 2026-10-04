@@ -56,6 +56,8 @@ export type CaseStudy = {
   /** Homepage card helpers (derived from live content) */
   metric?: string;
   metricLabel?: string;
+  /** Single stat for homepage thumbnail corner badge */
+  cardStat?: { value: string; label: string };
   sector: string;
   tags: string[];
 };
@@ -73,7 +75,7 @@ export const caseStudies: CaseStudy[] = [
     heroTitle: "Autonomous Customer Support Agent",
     summary:
       "An agentic support system that categorizes tickets, runs diagnostics, and drafts resolution protocols for one-click human approval — including billing lookups and refund workflows.",
-    cover: "/case-studies/autonomous-support-agent-cover.jpg",
+    cover: "/case-studies/autonomous-support-agent-cover-original.jpg",
     coverAlt: "Autonomous customer support AI agent",
     categories: [
       "ai-development",
@@ -155,6 +157,7 @@ export const caseStudies: CaseStudy[] = [
       "This engagement shows how Tekvill builds agentic AI that pushes real buttons through APIs — while empowering support teams instead of replacing them.",
     metric: "2/3",
     metricLabel: "tickets automated",
+    cardStat: { value: "<30s", label: "First Response" },
     sector: "AI Development",
     tags: ["Agentic AI", "Workflow Automation", "API Integration"],
   },
@@ -243,8 +246,9 @@ export const caseStudies: CaseStudy[] = [
     ],
     closing:
       "Tekvill’s procurement agent proves advanced agentic AI can run real supply-chain workflows while empowering procurement managers to make the final call.",
-    metric: "HITL",
-    metricLabel: "procurement agent",
+    metric: "Minutes",
+    metricLabel: "from stock drop to RFQ",
+    cardStat: { value: "35%", label: "Shorter Lead Times" },
     sector: "AI Development",
     tags: ["Agentic AI", "Supply Chain", "Workflow Automation"],
   },
@@ -334,8 +338,9 @@ export const caseStudies: CaseStudy[] = [
     ],
     closing:
       "This case study shows Tekvill’s approach to agentic BI — accelerating insight and empowering leadership while keeping data access governed and analysts focused on strategy.",
-    metric: "40 hrs",
+    metric: "40 Hours",
     metricLabel: "saved weekly",
+    cardStat: { value: "10x", label: "Faster Insights" },
     sector: "AI Development",
     tags: ["Agentic AI", "Data Engineering", "Workflow Automation"],
   },

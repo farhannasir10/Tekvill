@@ -22,7 +22,10 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Keep auto so route changes land at the top instead of animating up
+     from the previous page's scroll position. In-page anchors can still
+     opt into smooth scrolling via JS when needed. */
+  scroll-behavior: auto;
 }
 
 body {

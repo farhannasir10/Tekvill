@@ -92,15 +92,14 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
       <section className="bg-[#F6F6F6] pt-8 pb-2">
         <div className="mx-auto w-[min(920px,calc(100%-2.5rem))]">
-          <div className="overflow-hidden rounded-2xl border border-ink/[0.06] bg-white p-3 shadow-[0_16px_40px_rgba(15,18,24,0.08)] sm:p-5">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-ink/[0.06] bg-white shadow-[0_16px_40px_rgba(15,18,24,0.08)]">
             <Image
               src={study.cover}
               alt={study.coverAlt}
-              width={1210}
-              height={786}
+              fill
               priority
               sizes="(max-width: 920px) 100vw, 920px"
-              className="h-auto w-full rounded-xl"
+              className="object-cover"
             />
           </div>
         </div>

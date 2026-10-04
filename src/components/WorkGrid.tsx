@@ -66,15 +66,15 @@ export default function WorkGrid() {
                 >
                   <Link
                     href={`/work/${item.slug}`}
-                    className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-ink/[0.06] bg-white shadow-[0_12px_36px_rgba(15,18,24,0.06)] transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_48px_rgba(15,18,24,0.1)]"
+                    className="group relative isolate flex h-full flex-col overflow-hidden rounded-2xl border border-ink/[0.06] bg-white shadow-[0_12px_36px_rgba(15,18,24,0.06)] transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_48px_rgba(15,18,24,0.1)]"
                   >
-                    <div className="relative aspect-[16/10] overflow-hidden bg-ink/[0.04]">
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-t-2xl bg-ink/[0.04]">
                       <Image
                         src={item.cover}
                         alt={item.coverAlt}
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover transition duration-700 group-hover:scale-[1.03]"
+                        className="object-cover object-center transition duration-700 group-hover:scale-[1.03]"
                       />
                     </div>
                 <div className="flex flex-1 flex-col p-5">

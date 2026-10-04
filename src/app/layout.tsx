@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Raleway, Manrope } from "next/font/google";
+import ScrollToTop from "@/components/ScrollToTop";
 import "./globals.css";
 
 const serif = Cormorant_Garamond({
@@ -27,6 +28,13 @@ export const metadata: Metadata = {
   title: "Tekvill — Production Studio",
   description:
     "Tekvill plans, designs, and ships digital products, AI systems, and infrastructure for ambitious companies.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({
@@ -39,7 +47,10 @@ export default function RootLayout({
       lang="en"
       className={`${serif.variable} ${display.variable} ${ui.variable} h-full`}
     >
-      <body className="font-ui antialiased">{children}</body>
+      <body className="font-ui antialiased">
+        <ScrollToTop />
+        {children}
+      </body>
     </html>
   );
 }

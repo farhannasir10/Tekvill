@@ -1,17 +1,17 @@
-import Logo from "./Logo";
-import Image from "next/image";
+import HomeLogoLink from "./HomeLogoLink";
 import Link from "next/link";
+import { services } from "@/data/services";
 
 const company = [
-  { href: "/about", label: "About us" },
-  { href: "/#testimonials", label: "Clients" },
+  { href: "/work", label: "Work" },
   { href: "/contact", label: "Contact" },
+  { href: "/about", label: "About us" },
 ];
 
-const work = [
-  { href: "/services", label: "Services" },
-  { href: "/work", label: "Case studies" },
-];
+const serviceLinks = services.slice(0, 5).map((service) => ({
+  href: `/services/${service.slug}`,
+  label: service.title,
+}));
 
 export default function Footer() {
   return (
@@ -28,12 +28,12 @@ export default function Footer() {
       <div className="relative mx-auto w-[min(1120px,calc(100%-2.5rem))] pt-16 pb-8">
         <div className="grid gap-12 border-b border-white/[0.07] pb-12 lg:grid-cols-[1.35fr_1fr] lg:gap-16">
           <div>
-            <Link
-              href="/"
+            <HomeLogoLink
               className="inline-block transition hover:opacity-80"
-            >
-              <Logo className="h-10 w-auto" primaryColor="#6eb3ff" textColor="#ffffff" />
-            </Link>
+              logoClassName="h-10 w-auto"
+              primaryColor="#6eb3ff"
+              textColor="#ffffff"
+            />
             <p className="mt-4 max-w-sm font-ui text-[0.95rem] leading-relaxed text-muted">
               Production studio for AI, product, and infrastructure — built for
               teams that need what still works after launch.
@@ -69,10 +69,10 @@ export default function Footer() {
             </div>
             <div>
               <h4 className="mb-5 font-ui text-[0.68rem] font-semibold tracking-[0.16em] text-muted uppercase">
-                Work
+                Services
               </h4>
               <ul className="space-y-3">
-                {work.map((item) => (
+                {serviceLinks.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
